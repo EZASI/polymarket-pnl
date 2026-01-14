@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#030712">
+    <title>POLYMARKET // PNL TRACKER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-void: #030712;
+            --bg-panel: #0d1424;
+            --cyber-cyan: #00f5ff;
+            --cyber-magenta: #ff00ff;
+            --cyber-purple: #a855f7;
+            --neon-green: #00ff88;
+            --neon-red: #ff3366;
+            --neon-yellow: #ffee00;
+            --text-bright: #ffffff;
+            --text-dim: #64748b;
+            --grid-line: rgba(0, 245, 255, 0.05);
+        }
+        @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100vh); } }
+        @keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        @keyframes border-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-void);
+            min-height: 100vh;
+            color: var(--text-bright);
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                radial-gradient(ellipse at 50% 0%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+            opacity: 0.3;
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .container {
+            padding: 16px;
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(100px, env(safe-area-inset-bottom));
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-magenta), var(--cyber-cyan));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: border-flow 3s linear infinite;
+            margin-bottom: 8px;
+        }
+        .header-sub {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(0, 245, 255, 0.03);
+            border: 1px solid rgba(0, 245, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+        }
+        .status-live {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--neon-green);
+        }
+        .status-dot {
+            width: 6px; height: 6px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+        .status-time { color: var(--cyber-cyan); }
+        .hero-card {
+            position: relative;
+            background: var(--bg-panel);
+            border-radius: 8px;
+            padding: 24px 20px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-cyan), var(--cyber-magenta), transparent);
+            animation: border-flow 2s linear infinite;
+            background-size: 200% auto;
+        }
+        .hero-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--cyber-cyan);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .hero-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 8px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .hero-value.positive { color: var(--neon-green); text-shadow: 0 0 30px var(--neon-green); }
+        .hero-value.negative { color: var(--neon-red); text-shadow: 0 0 30px var(--neon-red); }
+        .hero-jpy {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.25rem;
+            text-align: center;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+        .period-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .period-btn {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 4px;
+            color: var(--text-dim);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .period-btn.active {
+            background: rgba(0, 245, 255, 0.1);
+            border-color: var(--cyber-cyan);
+            color: var(--cyber-cyan);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .stat-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(0, 245, 255, 0.1);
+            border-radius: 6px;
+            padding: 14px 12px;
+            position: relative;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: linear-gradient(180deg, var(--cyber-cyan), var(--cyber-purple));
+        }
+        .stat-card.highlight::before { background: linear-gradient(180deg, var(--neon-green), var(--cyber-cyan)); }
+        .stat-icon { font-size: 1.25rem; margin-bottom: 6px; }
+        .stat-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+        .stat-value { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 700; }
+        .stat-value.positive { color: var(--neon-green); }
+        .stat-value.negative { color: var(--neon-red); }
+        .stat-value.neutral { color: var(--cyber-cyan); }
+        .stat-sub { font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; color: var(--text-dim); margin-top: 2px; }
+        .positions-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .positions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--cyber-purple);
+            margin-bottom: 12px;
+        }
+        .position-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 8px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.75rem;
+            align-items: center;
+        }
+        .position-item:last-child { border-bottom: none; }
+        .position-title {
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .position-outcome {
+            font-family: 'Share Tech Mono', monospace;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+        }
+        .position-outcome.up { background: rgba(0, 255, 136, 0.2); color: var(--neon-green); }
+        .position-outcome.down { background: rgba(255, 51, 102, 0.2); color: var(--neon-red); }
+        .position-pnl { font-family: 'Share Tech Mono', monospace; font-weight: 600; text-align: right; }
+        .position-pnl.positive { color: var(--neon-green); }
+        .position-pnl.negative { color: var(--neon-red); }
+        .chart-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(0, 245, 255, 0.1);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .chart-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--cyber-cyan);
+            margin-bottom: 12px;
+        }
+        .chart-container {
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+        }
+        .chart-bar {
+            flex: 1;
+            min-width: 4px;
+            background: linear-gradient(180deg, var(--cyber-cyan), var(--cyber-purple));
+            border-radius: 2px 2px 0 0;
+            transition: all 0.3s ease;
+        }
+        .chart-bar.negative { background: linear-gradient(180deg, var(--neon-red), #991b1b); }
+        .ticker {
+            background: rgba(255, 238, 0, 0.05);
+            border: 1px solid rgba(255, 238, 0, 0.2);
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+        }
+        .ticker-value { color: var(--neon-yellow); font-weight: 600; }
+        .history-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(0, 245, 255, 0.1);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .history-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--cyber-cyan);
+        }
+        .history-count {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            background: rgba(0, 245, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .history-item {
+            display: grid;
+            grid-template-columns: 60px 1fr 80px;
+            gap: 8px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+        }
+        .history-item:last-child { border-bottom: none; }
+        .history-time { color: var(--text-dim); }
+        .history-pnl { font-weight: 600; }
+        .history-change { text-align: right; font-weight: 500; }
+        .history-pnl.positive, .history-change.positive { color: var(--neon-green); }
+        .history-pnl.negative, .history-change.negative { color: var(--neon-red); }
+        .footer {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, var(--bg-void) 60%, transparent);
+            padding: 16px;
+            padding-bottom: max(16px, env(safe-area-inset-bottom));
+        }
+        .footer-inner {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .countdown-container { flex: 1; }
+        .countdown-bar {
+            height: 3px;
+            background: rgba(0, 245, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+        .countdown-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-magenta));
+            border-radius: 2px;
+            transition: width 1s linear;
+            box-shadow: 0 0 10px var(--cyber-cyan);
+        }
+        .countdown-text {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            display: flex;
+            justify-content: space-between;
+        }
+        .control-btn {
+            width: 40px; height: 40px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loading { display: flex; justify-content: center; padding: 20px; }
+        .spinner {
+            width: 30px; height: 30px;
+            border: 2px solid rgba(0, 245, 255, 0.1);
+            border-top-color: var(--cyber-cyan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .empty-state { text-align: center; padding: 20px; color: var(--text-dim); font-size: 0.8rem; }
+        .api-status {
+            font-size: 0.6rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        .api-status.live { background: rgba(0, 255, 136, 0.2); color: var(--neon-green); }
+        .api-status.demo { background: rgba(255, 238, 0, 0.2); color: var(--neon-yellow); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-title">POLYMARKET</div>
+            <div class="header-sub">// REAL-TIME PNL SURVEILLANCE //</div>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-live">
+                <span class="status-dot"></span>
+                <span id="status-text">CONNECTING...</span>
+                <span class="api-status" id="api-status">...</span>
+            </div>
+            <div class="status-time" id="current-time">--:--:--</div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-label">⏰ PERIOD P&L</div>
+            <div class="hero-value" id="period-pnl">$0.00</div>
+            <div class="hero-jpy" id="period-pnl-jpy">¥0</div>
+            <div class="hero-meta">
+                <span>📊 <span id="tracking-minutes">0</span> MIN</span>
+                <span>📈 <span id="data-points">0</span> SAMPLES</span>
+            </div>
+        </div>
+
+        <div class="period-selector">
+            <button class="period-btn active" data-period="1m">1 MIN</button>
+            <button class="period-btn" data-period="5m">5 MIN</button>
+            <button class="period-btn" data-period="15m">15 MIN</button>
+            <button class="period-btn" data-period="1h">1 HOUR</button>
+            <button class="period-btn" data-period="24h">24H</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card highlight">
+                <div class="stat-icon">💰</div>
+                <div class="stat-label">UNREALIZED P&L</div>
+                <div class="stat-value" id="unrealized-pnl">$0.00</div>
+                <div class="stat-sub" id="unrealized-pnl-jpy">¥0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-label">REALIZED P&L</div>
+                <div class="stat-value" id="realized-pnl">$0.00</div>
+                <div class="stat-sub" id="realized-pnl-jpy">¥0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💼</div>
+                <div class="stat-label">PORTFOLIO VALUE</div>
+                <div class="stat-value neutral" id="portfolio-value">$0.00</div>
+                <div class="stat-sub" id="portfolio-value-jpy">¥0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-label">WIN RATE</div>
+                <div class="stat-value neutral" id="win-rate">--%</div>
+                <div class="stat-sub" id="win-count">-- W / -- L</div>
+            </div>
+        </div>
+
+        <div class="positions-card">
+            <div class="positions-header">📊 ACTIVE POSITIONS</div>
+            <div id="positions-list">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-title">📈 P&L TREND (REAL DATA)</div>
+            <div class="chart-container" id="chart">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <div class="ticker">
+            <span>💱 USD/JPY</span>
+            <span class="ticker-value" id="exchange-rate">¥--</span>
+        </div>
+
+        <div class="history-card">
+            <div class="history-header">
+                <div class="history-title">📜 P&L HISTORY</div>
+                <div class="history-count" id="history-count">0 ENTRIES</div>
+            </div>
+            <div id="history-list">
+                <div class="empty-state">LOADING...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="countdown-container">
+                <div class="countdown-bar">
+                    <div class="countdown-fill" id="countdown-fill" style="width: 100%"></div>
+                </div>
+                <div class="countdown-text">
+                    <span>NEXT SYNC</span>
+                    <span id="countdown">60s</span>
+                </div>
+            </div>
+            <button class="control-btn" id="sound-toggle">🔔</button>
+            <button class="control-btn" id="refresh-btn">🔄</button>
+        </div>
+    </div>
+
+    <script>
+        // ===== CONFIG =====
+        const WALLET_ADDRESS = "0x1831d1ABF62DfadaBcABb3D1c2Bf4476146a6C99";
+        const REFRESH_INTERVAL = 60;
+        const API_BASE = "https://data-api.polymarket.com";
+
+        // CORS Proxies - multiple fallbacks
+        const PROXIES = [
+            (url) => `https://api.codetabs.com/v1/proxy/?quest=${url}`,
+            (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+            (url) => url  // Direct as last resort
+        ];
+
+        async function fetchWithProxy(url) {
+            let lastError;
+
+            for (let i = 0; i < PROXIES.length; i++) {
+                try {
+                    const proxyUrl = PROXIES[i](url);
+                    console.log(`Trying proxy ${i}: ${proxyUrl.substring(0, 80)}...`);
+
+                    const res = await fetch(proxyUrl, {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (res.ok) {
+                        const data = await res.json();
+                        console.log(`Proxy ${i} succeeded!`);
+                        return data;
+                    } else {
+                        console.log(`Proxy ${i} returned ${res.status}`);
+                    }
+                } catch (e) {
+                    console.log(`Proxy ${i} error:`, e.message);
+                    lastError = e;
+                }
+            }
+
+            throw lastError || new Error('All proxies failed');
+        }
+
+        // ===== STATE =====
+        let history = [];
+        let positions = [];
+        let closedPositions = [];
+        let portfolioValue = 0;
+        let countdown = REFRESH_INTERVAL;
+        let soundEnabled = true;
+        let usdJpyRate = 158.65;
+        let selectedPeriod = '1h';
+        let isLiveData = false;
+
+        // ===== HELPERS =====
+        const formatUSD = (v, sign = false) => {
+            if (v == null || isNaN(v)) return '--';
+            const f = Math.abs(v).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            return sign ? (v >= 0 ? `+$${f}` : `-$${f}`) : (v >= 0 ? `$${f}` : `-$${f}`);
+        };
+
+        const formatJPY = (v, sign = false) => {
+            if (v == null || isNaN(v)) return '--';
+            const j = v * usdJpyRate;
+            const f = Math.round(Math.abs(j)).toLocaleString('ja-JP');
+            return sign ? (j >= 0 ? `+¥${f}` : `-¥${f}`) : (j >= 0 ? `¥${f}` : `-¥${f}`);
+        };
+
+        const formatTime = (d) => d.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+        const formatTimeFull = (d) => d.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        // ===== STORAGE =====
+        function loadHistory() {
+            try {
+                const saved = localStorage.getItem('pm_realdata_v1');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    history = parsed.map(h => ({ ...h, timestamp: new Date(h.timestamp) }));
+                    const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000);
+                    history = history.filter(h => h.timestamp > cutoff);
+                }
+            } catch (e) { history = []; }
+        }
+
+        function saveHistory() {
+            try { localStorage.setItem('pm_realdata_v1', JSON.stringify(history)); } catch (e) {}
+        }
+
+        // ===== API CALLS =====
+        async function fetchExchangeRate() {
+            try {
+                const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                const data = await res.json();
+                usdJpyRate = data.rates.JPY || 158.65;
+            } catch (e) {}
+            document.getElementById('exchange-rate').textContent = `¥${usdJpyRate.toFixed(2)}`;
+        }
+
+        async function fetchPositions() {
+            try {
+                const data = await fetchWithProxy(`${API_BASE}/positions?user=${WALLET_ADDRESS}`);
+                if (Array.isArray(data)) {
+                    positions = data;
+                    isLiveData = true;
+                    return positions;
+                }
+            } catch (e) {
+                console.error('Error fetching positions:', e);
+            }
+            isLiveData = false;
+            return [];
+        }
+
+        async function fetchPortfolioValue() {
+            try {
+                const data = await fetchWithProxy(`${API_BASE}/value?user=${WALLET_ADDRESS}`);
+                if (data && data[0]) {
+                    portfolioValue = data[0].value;
+                    return portfolioValue;
+                }
+            } catch (e) {
+                console.error('Error fetching portfolio value:', e);
+            }
+            return 0;
+        }
+
+        async function fetchClosedPositions() {
+            try {
+                const data = await fetchWithProxy(`${API_BASE}/v1/closed-positions?user=${WALLET_ADDRESS}`);
+                if (Array.isArray(data)) {
+                    closedPositions = data;
+                    return closedPositions;
+                }
+            } catch (e) {
+                console.error('Error fetching closed positions:', e);
+            }
+            return [];
+        }
+
+        // ===== CALCULATIONS =====
+        function calculateTotalUnrealizedPnL() {
+            return positions.reduce((sum, p) => sum + (p.cashPnl || 0), 0);
+        }
+
+        function calculateTotalRealizedPnL() {
+            // From current positions
+            const fromPositions = positions.reduce((sum, p) => sum + (p.realizedPnl || 0), 0);
+            // From closed positions
+            const fromClosed = closedPositions.reduce((sum, p) => sum + (p.realizedPnl || 0), 0);
+            return fromPositions + fromClosed;
+        }
+
+        function calculateWinRate() {
+            const wins = closedPositions.filter(p => p.realizedPnl > 0).length;
+            const losses = closedPositions.filter(p => p.realizedPnl < 0).length;
+            const total = wins + losses;
+            return {
+                rate: total > 0 ? (wins / total * 100) : 0,
+                wins,
+                losses
+            };
+        }
+
+        function calculatePeriodChange(period) {
+            if (history.length < 2) return { change: 0, minutes: 0 };
+
+            const now = new Date();
+            let cutoff;
+            switch (period) {
+                case '1m': cutoff = new Date(now.getTime() - 1 * 60 * 1000); break;
+                case '5m': cutoff = new Date(now.getTime() - 5 * 60 * 1000); break;
+                case '15m': cutoff = new Date(now.getTime() - 15 * 60 * 1000); break;
+                case '1h': cutoff = new Date(now.getTime() - 60 * 60 * 1000); break;
+                case '24h': cutoff = new Date(now.getTime() - 24 * 60 * 60 * 1000); break;
+                default: cutoff = new Date(now.getTime() - 60 * 60 * 1000);
+            }
+
+            const filtered = history.filter(h => h.timestamp >= cutoff);
+            if (filtered.length === 0 && history.length > 0) {
+                const oldest = history[0];
+                const minutes = Math.round((now - oldest.timestamp) / 60000);
+                return { change: history[history.length - 1].totalPnl - oldest.totalPnl, minutes };
+            }
+
+            if (filtered.length === 0) return { change: 0, minutes: 0 };
+
+            const oldest = filtered[0];
+            const newest = history[history.length - 1];
+            const minutes = Math.round((now - oldest.timestamp) / 60000);
+            return { change: newest.totalPnl - oldest.totalPnl, minutes };
+        }
+
+        // ===== UI UPDATES =====
+        function updateUI() {
+            document.getElementById('current-time').textContent = formatTimeFull(new Date());
+
+            // API Status
+            const apiStatus = document.getElementById('api-status');
+            if (isLiveData) {
+                apiStatus.textContent = 'LIVE';
+                apiStatus.className = 'api-status live';
+                document.getElementById('status-text').textContent = 'LIVE DATA';
+            } else {
+                apiStatus.textContent = 'DEMO';
+                apiStatus.className = 'api-status demo';
+                document.getElementById('status-text').textContent = 'DEMO MODE';
+            }
+
+            // Calculate P&L values
+            const unrealizedPnl = calculateTotalUnrealizedPnL();
+            const realizedPnl = calculateTotalRealizedPnL();
+            const totalPnl = unrealizedPnl + realizedPnl;
+
+            // Unrealized P&L
+            document.getElementById('unrealized-pnl').textContent = formatUSD(unrealizedPnl, true);
+            document.getElementById('unrealized-pnl').className = `stat-value ${unrealizedPnl >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('unrealized-pnl-jpy').textContent = formatJPY(unrealizedPnl, true);
+
+            // Realized P&L
+            document.getElementById('realized-pnl').textContent = formatUSD(realizedPnl, true);
+            document.getElementById('realized-pnl').className = `stat-value ${realizedPnl >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('realized-pnl-jpy').textContent = formatJPY(realizedPnl, true);
+
+            // Portfolio Value
+            document.getElementById('portfolio-value').textContent = formatUSD(portfolioValue);
+            document.getElementById('portfolio-value-jpy').textContent = formatJPY(portfolioValue);
+
+            // Win Rate
+            const winData = calculateWinRate();
+            document.getElementById('win-rate').textContent = `${winData.rate.toFixed(1)}%`;
+            document.getElementById('win-count').textContent = `${winData.wins}W / ${winData.losses}L`;
+
+            // Period P&L
+            const periodData = calculatePeriodChange(selectedPeriod);
+            const heroEl = document.getElementById('period-pnl');
+            heroEl.textContent = formatUSD(periodData.change, true);
+            heroEl.className = `hero-value ${periodData.change >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('period-pnl-jpy').textContent = formatJPY(periodData.change, true);
+            document.getElementById('period-pnl-jpy').className = `hero-jpy ${periodData.change >= 0 ? 'positive' : 'negative'}`;
+
+            // Tracking info
+            const trackingMins = history.length > 0 ? Math.round((new Date() - history[0].timestamp) / 60000) : 0;
+            document.getElementById('tracking-minutes').textContent = trackingMins;
+            document.getElementById('data-points').textContent = history.length;
+
+            // Sound on significant change
+            if (soundEnabled && history.length >= 2) {
+                const lastChange = history[history.length - 1].totalPnl - history[history.length - 2].totalPnl;
+                if (Math.abs(lastChange) > 10) {
+                    playSound(lastChange > 0);
+                }
+            }
+        }
+
+        function updatePositionsDisplay() {
+            const list = document.getElementById('positions-list');
+
+            if (positions.length === 0) {
+                list.innerHTML = '<div class="empty-state">NO ACTIVE POSITIONS</div>';
+                return;
+            }
+
+            list.innerHTML = positions.slice(0, 5).map(p => {
+                const pnlClass = p.cashPnl >= 0 ? 'positive' : 'negative';
+                const outcomeClass = p.outcome.toLowerCase() === 'up' ? 'up' : 'down';
+                const shortTitle = p.title.replace(/Ethereum|Bitcoin/g, m => m === 'Ethereum' ? 'ETH' : 'BTC')
+                                          .replace(/ Up or Down.*ET/g, '');
+
+                return `
+                    <div class="position-item">
+                        <span class="position-title">${shortTitle}</span>
+                        <span class="position-outcome ${outcomeClass}">${p.outcome}</span>
+                        <span class="position-pnl ${pnlClass}">${formatUSD(p.cashPnl, true)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            if (positions.length > 5) {
+                list.innerHTML += `<div class="empty-state">+${positions.length - 5} more positions</div>`;
+            }
+        }
+
+        function updateChart() {
+            const container = document.getElementById('chart');
+            const recent = history.slice(-30);
+
+            if (recent.length < 2) {
+                container.innerHTML = '<div class="empty-state">COLLECTING DATA...</div>';
+                return;
+            }
+
+            const changes = [];
+            for (let i = 1; i < recent.length; i++) {
+                changes.push(recent[i].totalPnl - recent[i - 1].totalPnl);
+            }
+
+            const maxAbs = Math.max(Math.abs(Math.min(...changes)), Math.abs(Math.max(...changes)), 1);
+
+            container.innerHTML = changes.map(c => {
+                const height = Math.abs(c) / maxAbs * 80;
+                return `<div class="chart-bar ${c < 0 ? 'negative' : ''}" style="height: ${Math.max(height, 4)}px"></div>`;
+            }).join('');
+        }
+
+        function updateHistoryDisplay() {
+            const list = document.getElementById('history-list');
+            const display = [...history].reverse().slice(0, 15);
+            document.getElementById('history-count').textContent = `${history.length} ENTRIES`;
+
+            if (display.length === 0) {
+                list.innerHTML = '<div class="empty-state">AWAITING DATA...</div>';
+                return;
+            }
+
+            list.innerHTML = display.map((item, i) => {
+                const change = i < display.length - 1 ? item.totalPnl - display[i + 1].totalPnl : 0;
+                return `
+                    <div class="history-item">
+                        <span class="history-time">${formatTime(item.timestamp)}</span>
+                        <span class="history-pnl ${item.totalPnl >= 0 ? 'positive' : 'negative'}">${formatUSD(item.totalPnl)}</span>
+                        <span class="history-change ${change >= 0 ? 'positive' : 'negative'}">${formatUSD(change, true)}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function playSound(positive) {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.value = positive ? 880 : 440;
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+                osc.start(ctx.currentTime);
+                osc.stop(ctx.currentTime + 0.15);
+            } catch (e) {}
+        }
+
+        // ===== EVENT HANDLERS =====
+        document.querySelectorAll('.period-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedPeriod = btn.dataset.period;
+                updateUI();
+            });
+        });
+
+        document.getElementById('sound-toggle').addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            document.getElementById('sound-toggle').textContent = soundEnabled ? '🔔' : '🔕';
+        });
+
+        document.getElementById('refresh-btn').addEventListener('click', () => {
+            countdown = 0;
+        });
+
+        // ===== MAIN LOOP =====
+        let fetchError = null;
+
+        async function refresh() {
+            // Show loading state
+            document.getElementById('status-text').textContent = 'SYNCING...';
+            document.getElementById('api-status').textContent = '...';
+            document.getElementById('api-status').className = 'api-status';
+            fetchError = null;
+
+            try {
+                console.log('Starting refresh...');
+                await fetchExchangeRate();
+                console.log('Exchange rate fetched');
+
+                // Fetch all data
+                const results = await Promise.allSettled([
+                    fetchPositions(),
+                    fetchPortfolioValue(),
+                    fetchClosedPositions()
+                ]);
+
+                console.log('API results:', results);
+
+                // Check if at least positions worked
+                if (results[0].status === 'rejected') {
+                    throw new Error('Failed to fetch positions: ' + results[0].reason?.message);
+                }
+
+                const unrealizedPnl = calculateTotalUnrealizedPnL();
+                const realizedPnl = calculateTotalRealizedPnL();
+                const totalPnl = unrealizedPnl + realizedPnl;
+
+                console.log('PnL calculated:', { unrealizedPnl, realizedPnl, totalPnl, positions: positions.length });
+
+                history.push({
+                    timestamp: new Date(),
+                    unrealizedPnl,
+                    realizedPnl,
+                    totalPnl,
+                    portfolioValue
+                });
+
+                const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000);
+                history = history.filter(h => h.timestamp > cutoff);
+                saveHistory();
+
+                updateUI();
+                updatePositionsDisplay();
+                updateChart();
+                updateHistoryDisplay();
+
+            } catch (e) {
+                console.error('Refresh error:', e);
+                fetchError = e.message;
+                document.getElementById('status-text').textContent = 'ERROR';
+                document.getElementById('api-status').textContent = 'ERR';
+                document.getElementById('api-status').className = 'api-status demo';
+                // Still update UI with whatever data we have
+                updateUI();
+                updatePositionsDisplay();
+            }
+        }
+
+        function tick() {
+            countdown--;
+            if (countdown <= 0) {
+                countdown = REFRESH_INTERVAL;
+                refresh();
+            }
+            document.getElementById('countdown').textContent = `${countdown}s`;
+            document.getElementById('countdown-fill').style.width = `${(countdown / REFRESH_INTERVAL) * 100}%`;
+            document.getElementById('current-time').textContent = formatTimeFull(new Date());
+        }
+
+        // ===== INIT =====
+        async function init() {
+            loadHistory();
+            await refresh();
+            setInterval(tick, 1000);
+        }
+
+        init();
+
+        if ('wakeLock' in navigator) {
+            navigator.wakeLock.request('screen').catch(() => {});
+        }
+    </script>
+</body>
+</html>
