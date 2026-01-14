@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>E.TOMITA // WEALTH TERMINAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --surface-2: #1a1a1a;
+            --border: #262626;
+            --text: #fafafa;
+            --text-dim: #737373;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.15);
+            --red: #ef4444;
+            --red-glow: rgba(239, 68, 68, 0.15);
+            --gold: #fbbf24;
+            --gold-glow: rgba(251, 191, 36, 0.1);
+            --purple: #a855f7;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(100px, env(safe-area-inset-bottom));
+        }
+
+        .container { max-width: 440px; margin: 0 auto; }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--gold);
+            background: var(--gold-glow);
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .header-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+        .header-name span {
+            color: var(--gold);
+        }
+        .header-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+        .status-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s infinite;
+        }
+        .status-dot.offline { background: var(--red); animation: none; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Hero Card */
+        .hero {
+            background: linear-gradient(145deg, var(--surface) 0%, var(--bg) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .hero-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .hero-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        .hero-value.positive { color: var(--green); }
+        .hero-value.negative { color: var(--red); }
+        .hero-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+        .hero-tag {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: var(--purple);
+            color: white;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+        }
+        .stat-card.full { grid-column: span 2; }
+        .stat-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .stat-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .stat-value.positive { color: var(--green); }
+        .stat-value.negative { color: var(--red); }
+        .stat-value.gold { color: var(--gold); }
+        .stat-sub {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        /* Chart */
+        .chart-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .chart-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .chart-info {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            font-family: 'Space Mono', monospace;
+        }
+        .chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 80px;
+        }
+        .bar {
+            flex: 1;
+            border-radius: 3px 3px 0 0;
+            background: var(--green);
+            min-height: 4px;
+            transition: all 0.3s;
+        }
+        .bar.negative { background: var(--red); }
+        .bar:hover { opacity: 0.7; }
+
+        /* History */
+        .history-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .history-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .history-badge {
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            font-family: 'Space Mono', monospace;
+        }
+        .history-list {
+            max-height: 320px;
+            overflow-y: auto;
+        }
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .history-item:last-child { border-bottom: none; }
+        .history-time {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+        .history-time-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+        .history-pnl {
+            text-align: right;
+        }
+        .history-pnl-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .history-pnl-value.positive { color: var(--green); }
+        .history-pnl-value.negative { color: var(--red); }
+        .history-pnl-jpy {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+        .empty {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, var(--bg) 70%, transparent);
+            padding: 16px;
+            padding-bottom: max(16px, env(safe-area-inset-bottom));
+        }
+        .footer-inner {
+            max-width: 440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-info {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+        .footer-next {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+        .refresh-btn {
+            background: var(--gold);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .refresh-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-badge">PRIVATE TERMINAL</div>
+            <div class="header-name">EIJI <span>TOMITA</span></div>
+            <div class="header-sub">// WEALTH MONITOR v2.0</div>
+            <div class="status-row">
+                <div class="status-item">
+                    <div class="status-dot" id="status-dot"></div>
+                    <span id="status-text">LIVE</span>
+                </div>
+                <div class="status-item">
+                    <span>💱</span>
+                    <span id="rate">¥158.65</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero - Last 15 Min -->
+        <div class="hero">
+            <div class="hero-tag">15 MIN</div>
+            <div class="hero-icon">💰</div>
+            <div class="hero-label">Last 15 Minutes P&L</div>
+            <div class="hero-value" id="period-pnl">$0.00</div>
+            <div class="hero-sub" id="period-pnl-jpy">¥0</div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Avg / 15 Min</div>
+                <div class="stat-value" id="avg-15m">$0.00</div>
+                <div class="stat-sub" id="avg-15m-jpy">¥0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">24h Total</div>
+                <div class="stat-value" id="total-24h">$0.00</div>
+                <div class="stat-sub" id="total-24h-jpy">¥0</div>
+            </div>
+            <div class="stat-card full">
+                <div class="stat-row">
+                    <div>
+                        <div class="stat-label">Current Total P&L</div>
+                        <div class="stat-value" id="current-pnl">$0.00</div>
+                    </div>
+                    <div style="text-align:right">
+                        <div class="stat-label">Portfolio Value</div>
+                        <div class="stat-value gold" id="portfolio">$0.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-card">
+            <div class="chart-header">
+                <div class="chart-title">📊 15-Min Performance</div>
+                <div class="chart-info" id="chart-info">Last 12 periods</div>
+            </div>
+            <div class="chart" id="chart"></div>
+        </div>
+
+        <!-- History -->
+        <div class="history-card">
+            <div class="history-header">
+                <div class="history-title">📜 15-Minute History</div>
+                <div class="history-badge" id="history-count">0 records</div>
+            </div>
+            <div class="history-list" id="history-list">
+                <div class="empty">Collecting 15-minute snapshots...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-info" id="last-update">--:--:--</div>
+                <div class="footer-next" id="next-update">Next: --:--</div>
+            </div>
+            <button class="refresh-btn" onclick="refresh()">⟳ SYNC</button>
+        </div>
+    </div>
+
+    <script>
+        // Config
+        const WALLET = "0x1831d1ABF62DfadaBcABb3D1c2Bf4476146a6C99";
+        const API = "https://data-api.polymarket.com";
+        const PROXY = "https://api.codetabs.com/v1/proxy/?quest=";
+        const INTERVAL_MINS = 15;
+
+        // State
+        let usdJpy = 158.65;
+        let history = []; // {time: "14:15", timestamp, totalPnl, change}
+        let currentPnl = 0;
+        let portfolioValue = 0;
+        let isLive = false;
+        let nextRefresh = null;
+
+        // Formatters
+        const fmtUSD = (v) => {
+            const abs = Math.abs(v).toFixed(2);
+            return v >= 0 ? `+$${abs}` : `-$${abs}`;
+        };
+        const fmtJPY = (v) => {
+            const j = Math.round(v * usdJpy);
+            const abs = Math.abs(j).toLocaleString();
+            return j >= 0 ? `+¥${abs}` : `-¥${abs}`;
+        };
+
+        // Get 15-min period key
+        function getPeriodKey(date = new Date()) {
+            const h = date.getHours().toString().padStart(2, '0');
+            const m = (Math.floor(date.getMinutes() / 15) * 15).toString().padStart(2, '0');
+            return `${h}:${m}`;
+        }
+
+        // Calculate next 15-min mark
+        function getNextRefreshTime() {
+            const now = new Date();
+            const mins = now.getMinutes();
+            const nextMins = (Math.floor(mins / 15) + 1) * 15;
+            const next = new Date(now);
+            if (nextMins >= 60) {
+                next.setHours(next.getHours() + 1);
+                next.setMinutes(0);
+            } else {
+                next.setMinutes(nextMins);
+            }
+            next.setSeconds(0);
+            return next;
+        }
+
+        // Fetch helper
+        async function fetchData(url) {
+            try {
+                const res = await fetch(PROXY + encodeURIComponent(url));
+                if (res.ok) return await res.json();
+            } catch (e) {}
+            try {
+                const res = await fetch(url);
+                return res.ok ? await res.json() : null;
+            } catch (e) { return null; }
+        }
+
+        // API calls
+        async function getRate() {
+            try {
+                const data = await fetch('https://api.exchangerate-api.com/v4/latest/USD').then(r => r.json());
+                usdJpy = data.rates?.JPY || 158.65;
+            } catch (e) {}
+            document.getElementById('rate').textContent = `¥${usdJpy.toFixed(2)}`;
+        }
+
+        async function getPositions() {
+            const data = await fetchData(`${API}/positions?user=${WALLET}`);
+            if (!data || !Array.isArray(data)) return null;
+            isLive = true;
+            return data.reduce((sum, p) => sum + (p.cashPnl || 0) + (p.realizedPnl || 0), 0);
+        }
+
+        async function getPortfolio() {
+            const data = await fetchData(`${API}/value?user=${WALLET}`);
+            return data?.[0]?.value || 0;
+        }
+
+        // History
+        function loadHistory() {
+            try {
+                const saved = localStorage.getItem('eiji_15m_v1');
+                if (saved) {
+                    history = JSON.parse(saved);
+                    const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+                    history = history.filter(h => h.timestamp > cutoff);
+                }
+            } catch (e) { history = []; }
+        }
+
+        function saveHistory() {
+            try { localStorage.setItem('eiji_15m_v1', JSON.stringify(history)); } catch (e) {}
+        }
+
+        function recordSnapshot(pnl) {
+            const now = new Date();
+            const periodKey = getPeriodKey(now);
+
+            // Check if we already have this period
+            const existingIdx = history.findIndex(h => {
+                const hDate = new Date(h.timestamp);
+                return getPeriodKey(hDate) === periodKey &&
+                       hDate.getDate() === now.getDate();
+            });
+
+            const prevPnl = history.length > 0 ? history[history.length - 1].totalPnl : pnl;
+
+            const entry = {
+                time: periodKey,
+                timestamp: now.getTime(),
+                totalPnl: pnl,
+                change: pnl - prevPnl
+            };
+
+            if (existingIdx >= 0) {
+                // Update existing - recalculate change from previous period
+                const prevEntry = existingIdx > 0 ? history[existingIdx - 1] : null;
+                entry.change = prevEntry ? pnl - prevEntry.totalPnl : 0;
+                history[existingIdx] = entry;
+            } else {
+                history.push(entry);
+            }
+
+            // Keep last 96 entries (24 hours * 4 per hour)
+            history = history.slice(-96);
+            saveHistory();
+        }
+
+        // Stats
+        function getStats() {
+            if (history.length < 2) return { lastPeriod: 0, avg: 0, total: 0 };
+
+            const lastPeriod = history[history.length - 1].change || 0;
+            const total = history.reduce((s, h) => s + (h.change || 0), 0);
+            const avg = total / history.length;
+
+            return { lastPeriod, avg, total };
+        }
+
+        // UI
+        function updateUI() {
+            const stats = getStats();
+
+            // Status
+            const dot = document.getElementById('status-dot');
+            const statusText = document.getElementById('status-text');
+            if (isLive) {
+                dot.className = 'status-dot';
+                statusText.textContent = 'LIVE';
+            } else {
+                dot.className = 'status-dot offline';
+                statusText.textContent = 'OFFLINE';
+            }
+
+            // Hero
+            const heroEl = document.getElementById('period-pnl');
+            heroEl.textContent = fmtUSD(stats.lastPeriod);
+            heroEl.className = `hero-value ${stats.lastPeriod >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('period-pnl-jpy').textContent = fmtJPY(stats.lastPeriod);
+
+            // Stats
+            const avgEl = document.getElementById('avg-15m');
+            avgEl.textContent = fmtUSD(stats.avg);
+            avgEl.className = `stat-value ${stats.avg >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('avg-15m-jpy').textContent = fmtJPY(stats.avg);
+
+            const totalEl = document.getElementById('total-24h');
+            totalEl.textContent = fmtUSD(stats.total);
+            totalEl.className = `stat-value ${stats.total >= 0 ? 'positive' : 'negative'}`;
+            document.getElementById('total-24h-jpy').textContent = fmtJPY(stats.total);
+
+            const currentEl = document.getElementById('current-pnl');
+            currentEl.textContent = fmtUSD(currentPnl);
+            currentEl.className = `stat-value ${currentPnl >= 0 ? 'positive' : 'negative'}`;
+
+            document.getElementById('portfolio').textContent = `$${portfolioValue.toFixed(0)}`;
+
+            // Time
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('ja-JP');
+            updateNextRefresh();
+
+            // Chart & History
+            renderChart();
+            renderHistory();
+        }
+
+        function updateNextRefresh() {
+            const next = getNextRefreshTime();
+            const nextStr = next.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('next-update').textContent = `Next: ${nextStr}`;
+        }
+
+        function renderChart() {
+            const chart = document.getElementById('chart');
+            const recent = history.slice(-12);
+
+            if (recent.length < 2) {
+                chart.innerHTML = '<div style="flex:1;display:flex;align-items:center;justify-content:center;color:#737373;font-size:0.7rem;">Collecting data...</div>';
+                return;
+            }
+
+            const maxAbs = Math.max(...recent.map(h => Math.abs(h.change || 0)), 1);
+            document.getElementById('chart-info').textContent = `Last ${recent.length} periods`;
+
+            chart.innerHTML = recent.map(h => {
+                const change = h.change || 0;
+                const height = Math.max((Math.abs(change) / maxAbs) * 70, 4);
+                return `<div class="bar ${change < 0 ? 'negative' : ''}" style="height:${height}px" title="${h.time}: ${fmtUSD(change)}"></div>`;
+            }).join('');
+        }
+
+        function renderHistory() {
+            const list = document.getElementById('history-list');
+            document.getElementById('history-count').textContent = `${history.length} records`;
+
+            if (history.length === 0) {
+                list.innerHTML = '<div class="empty">Collecting 15-minute snapshots...<br><br>Data will appear at the next 15-minute mark.</div>';
+                return;
+            }
+
+            const reversed = [...history].reverse();
+            list.innerHTML = reversed.map(h => {
+                const change = h.change || 0;
+                const cls = change >= 0 ? 'positive' : 'negative';
+                const date = new Date(h.timestamp);
+                const dateStr = date.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' });
+                return `
+                    <div class="history-item">
+                        <div>
+                            <div class="history-time">${h.time}</div>
+                            <div class="history-time-label">${dateStr}</div>
+                        </div>
+                        <div class="history-pnl">
+                            <div class="history-pnl-value ${cls}">${fmtUSD(change)}</div>
+                            <div class="history-pnl-jpy">${fmtJPY(change)}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Main
+        async function refresh() {
+            document.getElementById('status-text').textContent = 'SYNCING...';
+
+            try {
+                await getRate();
+                const [pnl, portfolio] = await Promise.all([getPositions(), getPortfolio()]);
+
+                if (pnl !== null) {
+                    currentPnl = pnl;
+                    recordSnapshot(pnl);
+                }
+                if (portfolio) portfolioValue = portfolio;
+
+                updateUI();
+            } catch (e) {
+                console.error(e);
+                isLive = false;
+                updateUI();
+            }
+        }
+
+        // Timer tick
+        function tick() {
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('ja-JP');
+            updateNextRefresh();
+
+            // Check if it's time to refresh (at 15-min marks)
+            const now = new Date();
+            const mins = now.getMinutes();
+            const secs = now.getSeconds();
+
+            // Refresh at :00, :15, :30, :45 (within first 30 seconds)
+            if (mins % 15 === 0 && secs < 30) {
+                const lastRefreshKey = localStorage.getItem('last_refresh_key');
+                const currentKey = getPeriodKey();
+                if (lastRefreshKey !== currentKey) {
+                    localStorage.setItem('last_refresh_key', currentKey);
+                    refresh();
+                }
+            }
+        }
+
+        // Init
+        loadHistory();
+        refresh();
+        setInterval(tick, 1000);
+    </script>
+</body>
+</html>
