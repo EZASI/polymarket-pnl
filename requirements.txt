@@ -1,0 +1,17 @@
+# Polymarket Prediction Bot Dependencies
+# Core requirements (minimal, using stdlib where possible)
+
+numpy>=1.21.0
+
+# Optional: For production ML models (not required for demo)
+# xgboost>=1.7.0
+# torch>=2.0.0
+# scikit-learn>=1.0.0
+
+# Optional: For live API access
+# aiohttp>=3.8.0
+# websockets>=10.0
+
+# Optional: For visualization
+# matplotlib>=3.5.0
+# plotly>=5.0.0
