@@ -40,3 +40,8 @@ Thumbs.db
 !package.json
 *.log
 .env
+# Large data files
+bot/data/*.csv
+bot/data/*.json
+*.csv
+
