@@ -182,6 +182,23 @@ class BacktestConfig:
 
 
 @dataclass
+class AggressiveConfig:
+    """
+    Aggressive trading configuration for high-frequency Polymarket trading.
+
+    Targets: 96 trades/day across 4 coins (BTC, ETH, SOL, MATIC)
+    Resolution: 15-minute markets
+    """
+    coins: List[str] = field(default_factory=lambda: ["BTC", "ETH", "SOL", "MATIC"])
+    trades_per_coin_per_day: int = 24  # One per hour minimum, up to 96
+    target_daily_profit_usd: float = 15000.0
+    position_size_usd: float = 2500.0  # Per trade
+    max_concurrent_positions: int = 8  # 2 per coin
+    max_daily_loss_usd: float = 7500.0  # Stop loss for the day (50% of target)
+    min_confidence_threshold: float = 0.52  # Lower threshold = more trades
+
+
+@dataclass
 class BotConfig:
     """Main bot configuration combining all components."""
     # API Configuration
@@ -198,6 +215,7 @@ class BotConfig:
     ml: MLConfig = field(default_factory=MLConfig)
     risk: RiskConfig = field(default_factory=RiskConfig)
     backtest: BacktestConfig = field(default_factory=BacktestConfig)
+    aggressive: AggressiveConfig = field(default_factory=AggressiveConfig)
 
     # Execution settings
     dry_run: bool = True  # Always start in dry run mode
@@ -240,5 +258,72 @@ def get_conservative_config() -> BotConfig:
     config.risk.min_edge_required = 0.02  # 2% minimum edge for demo
     config.risk.max_position_size_usd = 500.0
     config.risk.avoid_probability_range = (0.47, 0.53)  # Narrower death zone
+
+    return config
+
+
+def get_aggressive_config(target_daily_profit: float = 15000.0, capital: float = 150000.0) -> BotConfig:
+    """
+    Get aggressive configuration for high-frequency trading targeting $15k/day.
+
+    WARNING: HIGH RISK configuration. Requires significant capital.
+
+    Math breakdown:
+    - 96 potential trades/day (4 coins × 24 15-min periods)
+    - Realistically ~60 tradeable (others in death zone or no signal)
+    - With 57% win rate, need ~$2,500 position size
+    - Capital needed: ~$150k for proper risk management
+
+    Args:
+        target_daily_profit: Target profit per day in USD
+        capital: Available trading capital
+    """
+    config = BotConfig()
+
+    # Calculate position sizing
+    # Assuming 60 tradeable opportunities per day
+    # With 57% win rate: EV per trade = 0.14 * position_size (after costs)
+    estimated_trades_per_day = 60
+    estimated_edge_per_trade = 0.10  # 10% edge after costs (optimistic)
+    position_size = target_daily_profit / (estimated_trades_per_day * estimated_edge_per_trade)
+
+    # Cap position size at 2% of capital per trade
+    max_position = capital * 0.02
+    position_size = min(position_size, max_position)
+
+    # Enable ALL signals for maximum opportunity detection
+    config.obi.enabled = True
+    config.obi.weight = 0.30
+    config.obi.threshold = 0.20  # Lower threshold = more signals
+
+    config.lead_lag.enabled = True
+    config.lead_lag.weight = 0.30
+    config.lead_lag.levy_area_threshold = 0.03
+
+    config.funding_rate.enabled = True
+    config.funding_rate.weight = 0.15
+
+    config.sentiment.enabled = True
+    config.sentiment.weight = 0.10
+
+    config.liquidation.enabled = True
+    config.liquidation.weight = 0.15
+
+    # Aggressive risk settings
+    config.risk.max_position_size_usd = position_size
+    config.risk.max_daily_loss_usd = target_daily_profit * 0.5  # Stop at 50% of target as loss
+    config.risk.max_positions = 8  # Multiple concurrent positions
+    config.risk.min_edge_required = 0.01  # Lower edge threshold = more trades
+    config.risk.avoid_probability_range = (0.48, 0.52)  # Tighter death zone
+
+    # Aggressive config
+    config.aggressive.target_daily_profit_usd = target_daily_profit
+    config.aggressive.position_size_usd = position_size
+    config.aggressive.max_concurrent_positions = 8
+    config.aggressive.max_daily_loss_usd = target_daily_profit * 0.5
+    config.aggressive.min_confidence_threshold = 0.52  # Trade on slight edge
+
+    # Backtest with appropriate capital
+    config.backtest.initial_capital = capital
 
     return config
