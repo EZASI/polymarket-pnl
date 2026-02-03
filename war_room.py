@@ -1,39 +1,36 @@
 """
-War Room (smart version)
+War Room (CrewAI-enabled, smarter)
 
-Goal:
-- Make the War Room outputs *better* (more rigorous, less hand-wavy),
-  even when we can't run CrewAI due to local dependency constraints.
+This version runs actual multi-agent debate if you have:
+- Python 3.12 venv (venv-warroom)
+- crewai + crewai-tools installed
+- OPENAI_API_KEY set
 
-What "smarter" means here:
-- Clear assumptions + constraints
-- A scoring rubric (EV after fees, capacity, tail risk, latency needs)
-- Multi-round debate (proposal → attack → patch → final spec)
-- Outputs are bot-ready: entry/exit rules + sizing + kill-switches
-
-If you want *actual* CrewAI agent execution (not simulated printouts),
-you must run it under Python 3.11/3.12 (Python 3.14 breaks `tiktoken`
-wheels, so it tries to compile Rust).
+If OPENAI_API_KEY is missing, it prints a structured fallback.
 """
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
-from typing import List, Dict, Tuple
+from typing import List, Dict
+
+FALLBACK_TEXT = """
+WAR ROOM FALLBACK (No API key detected)
+- Please set OPENAI_API_KEY to run real agent debate.
+- This file supports a rigorous, multi-round debate with scoring rubric.
+"""
 
 
 @dataclass
 class StrategyScore:
-    """Higher is better. All values should be justified."""
-
-    ev_after_fees: float  # expected value per $1 notional
-    capacity_usd_per_day: float  # deployable size without self-slippage
-    tail_risk: float  # 0..1, lower is safer
-    latency_requirement_ms: int  # lower is easier
-    operational_complexity: float  # 0..1, lower is easier
+    ev_after_fees: float
+    capacity_usd_per_day: float
+    tail_risk: float
+    latency_requirement_ms: int
+    operational_complexity: float
 
     def total(self) -> float:
-        # Weighted blend: we care about EV and capacity, penalize risk/complexity/latency.
         return (
             10.0 * self.ev_after_fees
             + 0.00001 * self.capacity_usd_per_day
@@ -43,148 +40,85 @@ class StrategyScore:
         )
 
 
-def _print_header(title: str) -> None:
-    print("\n" + "=" * 80)
-    print(title)
-    print("=" * 80 + "\n")
+EVIDENCE_PACK = """
+Evidence constraints (from your repo + data notes):
+- Fees/slippage are the biggest killers; need >=2–3% edge after fees.
+- Basket/negative-risk arbs are structural if mutually exclusive sets dislocate.
+- Market making can scale but needs hedging/latency control.
+- 15m crypto markets are fast; avoid one-leg exposure.
+"""
 
 
-def simulate_smart_war_room(rounds: int = 2) -> None:
-    """
-    Simulated debate, but *structured* and *actionable*.
+def run_crewai_debate() -> str:
+    from crewai import Agent, Task, Crew, Process
 
-    NOTE: This does NOT claim guaranteed profitability. It yields a plan
-    that can be objectively backtested / paper-traded.
-    """
-
-    _print_header("WAR ROOM (SMART) — Round-based strategy design")
-
-    print("Constraints we must respect:")
-    print("- Target: $8,000/day *net* is only plausible with BIG capacity or real structural arb.")
-    print("- 15m crypto markets: fees + slippage dominate small edges.")
-    print("- Safety: avoid 'one-leg fill' and avoid strategies requiring illegal info.")
-    print()
-
-    # Round 1: Propose 3 candidates
-    _print_header("Round 1 — Proposal (3 candidates)")
-
-    candidates: List[Tuple[str, str, StrategyScore]] = []
-
-    # Candidate A: Mutually-exclusive basket arb (negative-risk style)
-    candidates.append(
-        (
-            "Basket Arbitrage (Mutually Exclusive Group)",
-            (
-                "Monitor outcome sets where exactly 1 outcome can win.\n"
-                "Compute Σ(best_ask_yes_i). If Σ < (1 - fees - slippage_buffer), buy YES on all.\n"
-                "Compute Σ(best_bid_yes_i). If Σ > (1 + fees + slippage_buffer), sell YES on all (or equivalently buy NO).\n"
-                "This is structural (math), not prediction."
-            ),
-            StrategyScore(
-                ev_after_fees=0.005,  # 0.5%/turn once costs included (conservative)
-                capacity_usd_per_day=2_000_000,  # can scale if many groups exist + liquidity
-                tail_risk=0.15,  # still has execution/partial fill risk
-                latency_requirement_ms=150,  # needs fast-ish but not HFT-level
-                operational_complexity=0.55,
-            ),
-        )
+    quant = Agent(
+        role="Aggressive Quant",
+        goal="Find a high-capacity 15m Polymarket strategy that can reach $8k/day.",
+        backstory=(
+            "Former HFT. You care about capacity, speed, and measurable edge."
+        ),
+        verbose=True,
     )
 
-    # Candidate B: Fee-aware market making around fair value (carry the spread)
-    candidates.append(
-        (
-            "Maker-Rebate Market Making (Edge = Spread + Rebate, Hedge with Futures)",
-            (
-                "Provide quotes on YES/NO around computed fair value; earn spread + rebates.\n"
-                "Hedge underlying exposure via Binance/Bybit perps.\n"
-                "Primary profit = microstructure, not being 'right'."
-            ),
-            StrategyScore(
-                ev_after_fees=0.0015,
-                capacity_usd_per_day=5_000_000,
-                tail_risk=0.35,  # inventory risk if hedge breaks / gaps
-                latency_requirement_ms=50,  # quote management needs speed
-                operational_complexity=0.80,  # high (hedging + infra)
-            ),
-        )
+    risk = Agent(
+        role="Risk Manager",
+        goal="Kill unsafe ideas; enforce hard constraints and tail-risk controls.",
+        backstory=(
+            "You only approve strategies with real edge after fees and "
+            "minimized one-leg exposure."
+        ),
+        verbose=True,
     )
 
-    # Candidate C: Strike-ladder attention decay (not generic lead-lag)
-    candidates.append(
-        (
-            "Strike-Ladder Consistency Arb (Same asset, multiple strikes/expiries)",
-            (
-                "For BTC/ETH 15m products with multiple strikes (K1<K2<K3):\n"
-                "Probability must be monotone: P(S>K1) ≥ P(S>K2) ≥ P(S>K3).\n"
-                "And differences must align with realized vol + time-to-expiry.\n"
-                "Trade violations: buy underpriced, sell overpriced legs while delta-hedging.\n"
-                "This is *structure + no-arb constraints*, not simple latency."
-            ),
-            StrategyScore(
-                ev_after_fees=0.003,
-                capacity_usd_per_day=1_000_000,
-                tail_risk=0.25,
-                latency_requirement_ms=120,
-                operational_complexity=0.65,
-            ),
-        )
+    strategist = Agent(
+        role="Chief Strategist",
+        goal="Select the winning strategy using a scoring rubric and produce bot-ready rules.",
+        backstory=(
+            "You synthesize ideas into an executable plan with entry/exit, "
+            "sizing, and kill-switches."
+        ),
+        verbose=True,
     )
 
-    for name, desc, score in candidates:
-        print(f"- {name}\n  {desc}\n  Score(total)≈ {score.total():.3f}\n")
+    task1 = Task(
+        description=(
+            "Round 1: Propose three candidate strategies. For each, estimate "
+            "EV after fees, capacity, tail risk, and latency needs. Use this evidence:\n"
+            f"{EVIDENCE_PACK}"
+        ),
+        agent=quant,
+    )
 
-    # Round 2: Attack + patch best candidate
-    best = max(candidates, key=lambda x: x[2].total())
-    best_name, best_desc, best_score = best
+    task2 = Task(
+        description=(
+            "Round 2: Attack each candidate with concrete failure modes: "
+            "fees, slippage, one-leg fill, liquidity fragmentation, and "
+            "resolution risk. Reject weak ideas."
+        ),
+        agent=risk,
+    )
 
-    _print_header("Round 2 — Attack the best candidate (Risk Officer) + Patch (Strategist)")
-    print(f"Selected to stress-test: {best_name}\n")
+    task3 = Task(
+        description=(
+            "Round 3: Select the best candidate, score it with the rubric, "
+            "and output a bot-ready spec (entry/exit, sizing, kill-switches)."
+        ),
+        agent=strategist,
+    )
 
-    print("Risk Officer: failure modes")
-    print("- Partial fills: you buy 7/10 outcomes and price moves, leaving you exposed.")
-    print("- Hidden correlation: 'mutually exclusive' may not be strictly exclusive (bad market definition).")
-    print("- Fees/slippage: edge disappears if you’re crossing the spread on many legs.")
-    print("- API limits: fetching 10 books x 50 groups can rate-limit you.")
-    print()
+    crew = Crew(
+        agents=[quant, risk, strategist],
+        tasks=[task1, task2, task3],
+        process=Process.sequential,
+        verbose=True,
+    )
 
-    print("Strategist: patches / constraints")
-    print("- Only trade when edge > max(3*fees, 2*spread_sum, fixed $ buffer).")
-    print("- Use IOC/FOK style execution where possible; otherwise execute via staged basket:")
-    print("  - Leg into the *most liquid* outcomes first, then complete the tail.")
-    print("- Enforce exclusivity via whitelist of known group types.")
-    print("- Cap exposure: if not 100% filled within 300ms, cancel remainder and unwind filled legs.")
-    print()
-
-    _print_header("Final Output — Bot-ready spec (the thing you actually implement)")
-    print("Strategy: Basket Arbitrage (Mutually Exclusive Group)\n")
-    print("Inputs:")
-    print("- Group definition: list of token_ids in a mutually exclusive set")
-    print("- For each token_id: best_ask_yes, best_bid_yes, available size at those levels")
-    print("- Fee model: maker/taker + expected slippage buffer per leg\n")
-
-    print("Entry conditions (BUY basket):")
-    print("- Compute cost = Σ(ask_yes_i) using *only* sizes you can fill (depth-aware).")
-    print("- Require cost <= 1.0 - (fee_buffer + slippage_buffer + safety_margin).")
-    print("- safety_margin default: 0.5% of notional.\n")
-
-    print("Entry conditions (SELL basket):")
-    print("- Compute proceeds = Σ(bid_yes_i) depth-aware.")
-    print("- Require proceeds >= 1.0 + (fee_buffer + slippage_buffer + safety_margin).\n")
-
-    print("Sizing:")
-    print("- Let fillable_notional = min_i(depth_at_best_i).")
-    print("- Place size so every leg can fill at quoted levels.")
-    print("- Per-trade cap: min(10% bankroll, $25k) until proven in paper-trade.\n")
-
-    print("Kill-switches:")
-    print("- If any leg not filled in 300ms, cancel all remaining.")
-    print("- If filled legs exist, immediately unwind at market if residual edge < 0.")
-    print("- Daily loss limit: 1% bankroll.\n")
-
-    print("Path to $8k/day (realistic math):")
-    print("- If net edge ≈ 0.5% per completed basket, need ~$1.6M/day notional *turnover*.")
-    print("- That’s doable only if there are enough liquid groups OR you have maker rebates.\n")
+    return crew.kickoff()
 
 
 if __name__ == "__main__":
-    simulate_smart_war_room(rounds=2)
+    if not os.getenv("OPENAI_API_KEY"):
+        print(FALLBACK_TEXT)
+    else:
+        print(run_crewai_debate())
