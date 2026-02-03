@@ -1,146 +1,190 @@
-import os
-import sys
+"""
+War Room (smart version)
 
-# Simulation of the War Room if dependencies are missing
-def simulate_war_room():
-    print("### STARTING WAR ROOM DEBATE (SIMULATED) ###\n")
-    
-    print("\n--- AGENT: AGGRESSIVE QUANT ---")
-    print("PROPOSAL: 15m 'Gamma Scalping' on Polymerket")
-    print("LOGIC:")
-    print("1.  **Entry Trigger**: Monitor the 1-minute order book depth. When the bid-ask spread widens to > 5 cents on a high-volume crypto market (e.g., 'Will BTC hit $100k?'), it indicates temporary dislocation.")
-    print("2.  **Volume Spike**: Wait for a trade volume spike > 3x the 20-period moving average. This confirms 'smart money' positioning.")
-    print("3.  **Execution**: Immediately place a LIMIT ORDER at the mid-price. DO NOT take liquidity. Force the market to come to you.")
-    print("4.  **The Arbitrage**: If YES is $0.40 and NO is $0.55 (Total $0.95), buy BOTH. Instant 5% risk-free yield if filled.")
-    
-    print("\n--- AGENT: RISK MANAGER ---")
-    print("CRITIQUE: You're ignoring the 'Legging Risk'.")
-    print("1.  **Fee Drag**: Polymarket fees + gas (if not using proxy) kill the 5-cent spread. You need > 3% net margin.")
-    print("2.  **Execution Risk**: You buy YES at $0.40, but before you buy NO at $0.55, it jumps to $0.65. Now you're net long directional with a guaranteed loss if you hedge.")
-    print("3.  **Phantom Liquidity**: That 5-cent spread exists because there's no depth. Your 1000-share order will slip the price by 10 cents.")
-    
-    print("\n--- AGENT: CHIEF STRATEGIST ---")
-    print("FINAL VERDICT: The 'Safe' 15m Strategy")
-    print("We will not do pure spread scalping. It's too risky with current liquidity.")
-    print("INSTEAD, we run the **'Volume-Weighted Convergence'** Strategy:")
-    
-    print("\n### GOLDEN LOGIC ###")
-    print("1.  **Filter**: Only trade markets expiring in < 15 minutes.")
-    print("2.  **Signal**: Watch for **Price-Volume Divergence**.")
-    print("    - If Price of YES drops 5% but Volume on NO is flat -> False drop (Noise).")
-    print("    - **ACTION**: Buy YES (Mean Reversion).")
-    print("3.  **Hedge**: Automatically place a 'Take Profit' limit order at +4 cents from entry.")
-    print("4.  **Safety**: Max position size = 10% of Average Daily Volume of that specific market.")
-    print("5.  **Stop Loss**: If the spread widens > 10 cents, exit immediately.")
-    
-    print("\n### EXECUTION LOOP ###")
-    print("```python")
-    print("def trading_loop(market):")
-    print("    spread = market.ask - market.bid")
-    print("    volume_ma = market.rolling_volume(20)")
-    print("    ")
-    print("    # The 'Safe' Entry")
-    print("    if spread > 0.05 and market.last_volume > 3 * volume_ma:")
-    print("        # Check if 'Yes' + 'No' < 0.98 (True Arb)")
-    print("        if market.yes_price + market.no_price < 0.98:")
-    print("            execute_arbitrage(market)  # Buy both")
-    print("        else:")
-    print("            # Directional Scalp based on volume")
-    print("            direction = 'Yes' if market.yes_buy_vol > market.no_buy_vol else 'No'")
-    print("            place_limit_order(direction, price=market.mid_price)")
-    print("```")
+Goal:
+- Make the War Room outputs *better* (more rigorous, less hand-wavy),
+  even when we can't run CrewAI due to local dependency constraints.
 
-try:
-    from crewai import Agent, Task, Crew, Process
-    # Try importing ChatOpenAI, but handle if it's missing or if API key is missing
-    try:
-        from langchain_openai import ChatOpenAI
-        if "OPENAI_API_KEY" not in os.environ:
-            raise ValueError("No API Key")
-    except (ImportError, ValueError):
-        # Fallback if no API key or package
-        simulate_war_room()
-        sys.exit(0)
+What "smarter" means here:
+- Clear assumptions + constraints
+- A scoring rubric (EV after fees, capacity, tail risk, latency needs)
+- Multi-round debate (proposal → attack → patch → final spec)
+- Outputs are bot-ready: entry/exit rules + sizing + kill-switches
 
-    # 1. THE AGGRESSIVE QUANT
-    quant = Agent(
-      role='Aggressive Quant',
-      goal='Develop a high-frequency 15m arbitrage strategy for Polymarket.',
-      backstory="You are a former HFT trader who thrives on volatility. You believe in 45/45 spreads, fast execution, and exploiting 15-minute crypto price fluctuations on Polymarket. You focus on volume spikes and rapid price convergence.",
-      verbose=True,
-      allow_delegation=False
+If you want *actual* CrewAI agent execution (not simulated printouts),
+you must run it under Python 3.11/3.12 (Python 3.14 breaks `tiktoken`
+wheels, so it tries to compile Rust).
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import List, Dict, Tuple
+
+
+@dataclass
+class StrategyScore:
+    """Higher is better. All values should be justified."""
+
+    ev_after_fees: float  # expected value per $1 notional
+    capacity_usd_per_day: float  # deployable size without self-slippage
+    tail_risk: float  # 0..1, lower is safer
+    latency_requirement_ms: int  # lower is easier
+    operational_complexity: float  # 0..1, lower is easier
+
+    def total(self) -> float:
+        # Weighted blend: we care about EV and capacity, penalize risk/complexity/latency.
+        return (
+            10.0 * self.ev_after_fees
+            + 0.00001 * self.capacity_usd_per_day
+            - 5.0 * self.tail_risk
+            - 0.001 * self.latency_requirement_ms
+            - 2.0 * self.operational_complexity
+        )
+
+
+def _print_header(title: str) -> None:
+    print("\n" + "=" * 80)
+    print(title)
+    print("=" * 80 + "\n")
+
+
+def simulate_smart_war_room(rounds: int = 2) -> None:
+    """
+    Simulated debate, but *structured* and *actionable*.
+
+    NOTE: This does NOT claim guaranteed profitability. It yields a plan
+    that can be objectively backtested / paper-traded.
+    """
+
+    _print_header("WAR ROOM (SMART) — Round-based strategy design")
+
+    print("Constraints we must respect:")
+    print("- Target: $8,000/day *net* is only plausible with BIG capacity or real structural arb.")
+    print("- 15m crypto markets: fees + slippage dominate small edges.")
+    print("- Safety: avoid 'one-leg fill' and avoid strategies requiring illegal info.")
+    print()
+
+    # Round 1: Propose 3 candidates
+    _print_header("Round 1 — Proposal (3 candidates)")
+
+    candidates: List[Tuple[str, str, StrategyScore]] = []
+
+    # Candidate A: Mutually-exclusive basket arb (negative-risk style)
+    candidates.append(
+        (
+            "Basket Arbitrage (Mutually Exclusive Group)",
+            (
+                "Monitor outcome sets where exactly 1 outcome can win.\n"
+                "Compute Σ(best_ask_yes_i). If Σ < (1 - fees - slippage_buffer), buy YES on all.\n"
+                "Compute Σ(best_bid_yes_i). If Σ > (1 + fees + slippage_buffer), sell YES on all (or equivalently buy NO).\n"
+                "This is structural (math), not prediction."
+            ),
+            StrategyScore(
+                ev_after_fees=0.005,  # 0.5%/turn once costs included (conservative)
+                capacity_usd_per_day=2_000_000,  # can scale if many groups exist + liquidity
+                tail_risk=0.15,  # still has execution/partial fill risk
+                latency_requirement_ms=150,  # needs fast-ish but not HFT-level
+                operational_complexity=0.55,
+            ),
+        )
     )
 
-    # 2. THE RISK GENERAL
-    risk_officer = Agent(
-      role='Risk Manager',
-      goal='Analyze the Quants strategy for hidden risks like order book depth, fees, and slippage.',
-      backstory="You hate losing money. You are extremely skeptical of 'guaranteed' profits. You must point out every reason why the 15m market is dangerous: wide spreads, liquidity gaps, API latency, and resolution disputes.",
-      verbose=True,
-      allow_delegation=False
+    # Candidate B: Fee-aware market making around fair value (carry the spread)
+    candidates.append(
+        (
+            "Maker-Rebate Market Making (Edge = Spread + Rebate, Hedge with Futures)",
+            (
+                "Provide quotes on YES/NO around computed fair value; earn spread + rebates.\n"
+                "Hedge underlying exposure via Binance/Bybit perps.\n"
+                "Primary profit = microstructure, not being 'right'."
+            ),
+            StrategyScore(
+                ev_after_fees=0.0015,
+                capacity_usd_per_day=5_000_000,
+                tail_risk=0.35,  # inventory risk if hedge breaks / gaps
+                latency_requirement_ms=50,  # quote management needs speed
+                operational_complexity=0.80,  # high (hedging + infra)
+            ),
+        )
     )
 
-    # 3. THE JUDGE
-    strategist = Agent(
-      role='Chief Strategist',
-      goal='Review the debate and output a final, safe execution plan for the bot.',
-      backstory="You are the calm voice of reason. You take the Quant's aggressive ideas and the Risk Officer's warnings to create a balanced, profitable, and safe trading algorithm. You care about sustainable alpha.",
-      verbose=True,
-      allow_delegation=True
+    # Candidate C: Strike-ladder attention decay (not generic lead-lag)
+    candidates.append(
+        (
+            "Strike-Ladder Consistency Arb (Same asset, multiple strikes/expiries)",
+            (
+                "For BTC/ETH 15m products with multiple strikes (K1<K2<K3):\n"
+                "Probability must be monotone: P(S>K1) ≥ P(S>K2) ≥ P(S>K3).\n"
+                "And differences must align with realized vol + time-to-expiry.\n"
+                "Trade violations: buy underpriced, sell overpriced legs while delta-hedging.\n"
+                "This is *structure + no-arb constraints*, not simple latency."
+            ),
+            StrategyScore(
+                ev_after_fees=0.003,
+                capacity_usd_per_day=1_000_000,
+                tail_risk=0.25,
+                latency_requirement_ms=120,
+                operational_complexity=0.65,
+            ),
+        )
     )
 
-    # THE TASKS
-    task1 = Task(
-        description="""
-        Propose a concrete 15-minute crypto arbitrage strategy for Polymarket. 
-        Focus on:
-        1. Identifying 'Yes' and 'No' shares that sum to less than $1.00 (arbitrage).
-        2. Exploiting volume spikes (3x average) to predict short-term direction.
-        3. Using a tight 5-cent spread logic for entry.
-        4. Provide pseudo-code or specific logic for the entry trigger.
-        """,
-        agent=quant,
-        expected_output="A detailed aggressive strategy proposal with entry triggers and expected profit."
-    )
+    for name, desc, score in candidates:
+        print(f"- {name}\n  {desc}\n  Score(total)≈ {score.total():.3f}\n")
 
-    task2 = Task(
-        description="""
-        Critique the Quant's strategy. Find 3 specific ways this strategy fails in real Polymarket crypto markets.
-        Consider:
-        1. Transaction fees (taker vs maker) and how they eat the 5-cent spread.
-        2. Liquidity risk: What happens if the order book is thin when you try to exit?
-        3. Execution lag: The risk of one leg filling and the other moving (getting 'legged out').
-        """,
-        agent=risk_officer,
-        expected_output="A risk analysis report listing 3 fatal flaws and mitigation warnings."
-    )
+    # Round 2: Attack + patch best candidate
+    best = max(candidates, key=lambda x: x[2].total())
+    best_name, best_desc, best_score = best
 
-    task3 = Task(
-        description="""
-        Synthesize the Quant's strategy and the Risk Officer's critique into a final, safe bot logic.
-        1. Define the exact conditions for entry (e.g., minimum profit margin after fees).
-        2. Define risk management rules (e.g., max position size, stop loss).
-        3. Output the final 'Golden Logic' that balances aggression with safety.
-        """,
-        agent=strategist,
-        expected_output="The final, safe execution plan and logic for the 15-minute Polymarket Arbitrage Bot."
-    )
+    _print_header("Round 2 — Attack the best candidate (Risk Officer) + Patch (Strategist)")
+    print(f"Selected to stress-test: {best_name}\n")
 
-    # START THE WAR ROOM
-    war_room = Crew(
-      agents=[quant, risk_officer, strategist],
-      tasks=[task1, task2, task3],
-      verbose=True,
-      process=Process.sequential
-    )
+    print("Risk Officer: failure modes")
+    print("- Partial fills: you buy 7/10 outcomes and price moves, leaving you exposed.")
+    print("- Hidden correlation: 'mutually exclusive' may not be strictly exclusive (bad market definition).")
+    print("- Fees/slippage: edge disappears if you’re crossing the spread on many legs.")
+    print("- API limits: fetching 10 books x 50 groups can rate-limit you.")
+    print()
 
-    print("### STARTING WAR ROOM DEBATE ###")
-    result = war_room.kickoff()
-    print("\n\n########################")
-    print("## FINAL STRATEGY DECISION ##")
-    print("########################\n")
-    print(result)
+    print("Strategist: patches / constraints")
+    print("- Only trade when edge > max(3*fees, 2*spread_sum, fixed $ buffer).")
+    print("- Use IOC/FOK style execution where possible; otherwise execute via staged basket:")
+    print("  - Leg into the *most liquid* outcomes first, then complete the tail.")
+    print("- Enforce exclusivity via whitelist of known group types.")
+    print("- Cap exposure: if not 100% filled within 300ms, cancel remainder and unwind filled legs.")
+    print()
 
-except Exception as e:
-    # If CrewAI fails to run (e.g., missing LLM), fall back to simulation
-    simulate_war_room()
+    _print_header("Final Output — Bot-ready spec (the thing you actually implement)")
+    print("Strategy: Basket Arbitrage (Mutually Exclusive Group)\n")
+    print("Inputs:")
+    print("- Group definition: list of token_ids in a mutually exclusive set")
+    print("- For each token_id: best_ask_yes, best_bid_yes, available size at those levels")
+    print("- Fee model: maker/taker + expected slippage buffer per leg\n")
+
+    print("Entry conditions (BUY basket):")
+    print("- Compute cost = Σ(ask_yes_i) using *only* sizes you can fill (depth-aware).")
+    print("- Require cost <= 1.0 - (fee_buffer + slippage_buffer + safety_margin).")
+    print("- safety_margin default: 0.5% of notional.\n")
+
+    print("Entry conditions (SELL basket):")
+    print("- Compute proceeds = Σ(bid_yes_i) depth-aware.")
+    print("- Require proceeds >= 1.0 + (fee_buffer + slippage_buffer + safety_margin).\n")
+
+    print("Sizing:")
+    print("- Let fillable_notional = min_i(depth_at_best_i).")
+    print("- Place size so every leg can fill at quoted levels.")
+    print("- Per-trade cap: min(10% bankroll, $25k) until proven in paper-trade.\n")
+
+    print("Kill-switches:")
+    print("- If any leg not filled in 300ms, cancel all remaining.")
+    print("- If filled legs exist, immediately unwind at market if residual edge < 0.")
+    print("- Daily loss limit: 1% bankroll.\n")
+
+    print("Path to $8k/day (realistic math):")
+    print("- If net edge ≈ 0.5% per completed basket, need ~$1.6M/day notional *turnover*.")
+    print("- That’s doable only if there are enough liquid groups OR you have maker rebates.\n")
+
+
+if __name__ == "__main__":
+    simulate_smart_war_room(rounds=2)
