@@ -43,5 +43,7 @@ Thumbs.db
 # Large data files
 bot/data/*.csv
 bot/data/*.json
+bot/data/full_market/
 *.csv
+*.ndjson
 
