@@ -1,0 +1,2060 @@
+{
+  "time": "2026-02-08T00:10:02.447692+00:00",
+  "signals": [
+    {
+      "title": "Spread: Thunder (-4.5)",
+      "slug": "nba-hou-okc-2026-02-07-spread-home-4pt5",
+      "n_traders": 2,
+      "avg_wr": 86.2,
+      "total_invested": 387908.0,
+      "consensus": "Thunder",
+      "consensus_pct": 100.0,
+      "strength": "MODERATE",
+      "score": 17.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 317562.91280000005,
+          "outcome": "Thunder"
+        },
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 70344.920192,
+          "outcome": "Thunder"
+        }
+      ],
+      "conditionId": "0xf660a8cfda16b34b4df27b6c1590ae01c63418a306c57e63d11ead9bb25d35f8"
+    },
+    {
+      "title": "Rockets vs. Thunder: O/U 213.5",
+      "slug": "nba-hou-okc-2026-02-07-total-213pt5",
+      "n_traders": 2,
+      "avg_wr": 86.2,
+      "total_invested": 303455.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "MODERATE",
+      "score": 17.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 198819.55719999998,
+          "outcome": "Over"
+        },
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 104635.7315,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0xcfe18c80b923b90cf5379ac4b157612e173539451f6cb4263c0af7c317905786"
+    },
+    {
+      "title": "Rockets vs. Thunder: O/U 214.5",
+      "slug": "nba-hou-okc-2026-02-07-total-214pt5",
+      "n_traders": 2,
+      "avg_wr": 86.2,
+      "total_invested": 70058.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "MODERATE",
+      "score": 12.07,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 15323.5299,
+          "outcome": "Over"
+        },
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 54734.801518,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0xf35ef29a9ae2194b3b422ef98cdea8dac3f94c4c1b5e0590f849e187d3082820"
+    },
+    {
+      "title": "Rockets vs. Thunder",
+      "slug": "nba-hou-okc-2026-02-07",
+      "n_traders": 2,
+      "avg_wr": 90.0,
+      "total_invested": 63765.0,
+      "consensus": "Rockets",
+      "consensus_pct": 100.0,
+      "strength": "MODERATE",
+      "score": 11.48,
+      "traders": [
+        {
+          "name": "FeatherLeather",
+          "win_rate": 100.0,
+          "pnl": 1336294.5902801037,
+          "size": 101.2,
+          "outcome": "Rockets"
+        },
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 63663.574835999985,
+          "outcome": "Rockets"
+        }
+      ],
+      "conditionId": "0xdfdab7827bcc6553118209bedcf56d4de3fbc4f2df3e4f4c377486c88f522b05"
+    },
+    {
+      "title": "Warriors vs. Lakers",
+      "slug": "nba-gsw-lal-2026-02-07",
+      "n_traders": 3,
+      "avg_wr": 26.7,
+      "total_invested": 203689.0,
+      "consensus": "Warriors",
+      "consensus_pct": 74.0,
+      "strength": "WEAK",
+      "score": 8.0,
+      "traders": [
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 52999.991429,
+          "outcome": "Lakers"
+        },
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 54669.28871599994,
+          "outcome": "Warriors"
+        },
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 96019.64531600004,
+          "outcome": "Warriors"
+        }
+      ],
+      "conditionId": "0x66256cf24badf914990a9ed69bf39abb32024afc6a0aaad4d85e6c6a671b2bf5"
+    },
+    {
+      "title": "Mavericks vs. Spurs",
+      "slug": "nba-dal-sas-2026-02-07",
+      "n_traders": 2,
+      "avg_wr": 40.0,
+      "total_invested": 179829.0,
+      "consensus": "Mavericks",
+      "consensus_pct": 78.3,
+      "strength": "WEAK",
+      "score": 8.0,
+      "traders": [
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 39000.0,
+          "outcome": "Spurs"
+        },
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 140829.08032400013,
+          "outcome": "Mavericks"
+        }
+      ],
+      "conditionId": "0x63de1cd3aad5d10055280e36c0b1b8b3a32a803974270eb491e891dab57a12ec"
+    },
+    {
+      "title": "Spread: Spurs (-11.5)",
+      "slug": "nba-dal-sas-2026-02-07-spread-home-11pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 300236.0,
+      "consensus": "Spurs",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 7.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 300235.5818,
+          "outcome": "Spurs"
+        }
+      ],
+      "conditionId": "0x8cb6dd121c2685b569f9049825ddc02c1cf1178d0a44055d5cce660114d6f74a"
+    },
+    {
+      "title": "Spread: Magic (-8.5)",
+      "slug": "nba-uta-orl-2026-02-07-spread-home-8pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 230008.0,
+      "consensus": "Magic",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 7.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 230008.0953,
+          "outcome": "Magic"
+        }
+      ],
+      "conditionId": "0xbe279293918261d34249566978151db76ebc3f15ffaf5b8a619c87f523bead60"
+    },
+    {
+      "title": "Cavaliers vs. Kings: O/U 234.5",
+      "slug": "nba-cle-sac-2026-02-07-total-234pt5",
+      "n_traders": 2,
+      "avg_wr": 36.1,
+      "total_invested": 193330.0,
+      "consensus": "Over",
+      "consensus_pct": 91.3,
+      "strength": "WEAK",
+      "score": 7.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 176439.274022,
+          "outcome": "Over"
+        },
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 16890.377699999997,
+          "outcome": "Under"
+        }
+      ],
+      "conditionId": "0x974dece9eee201aae7c89740b84c384609a4d4236ec381e251d3c1fa7b275c57"
+    },
+    {
+      "title": "Mavericks vs. Spurs: O/U 229.5",
+      "slug": "nba-dal-sas-2026-02-07-total-229pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 167587.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 7.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 167586.6652959999,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x04036502707148966f7018ac3823e310d68524bead74fa4aaf556a8f04c293a2"
+    },
+    {
+      "title": "Mavericks vs. Spurs: O/U 230.5",
+      "slug": "nba-dal-sas-2026-02-07-total-230pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 157333.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 7.23,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 157332.76733199996,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x1e32cb8293f20d2ff8304bba88e06360571351222e45b5fc574973197d29a0e3"
+    },
+    {
+      "title": "Will BV Borussia 09 Dortmund win on 2026-02-07?",
+      "slug": "bun-wol-dor-2026-02-07-dor",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 67250.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 6.72,
+      "traders": [
+        {
+          "name": "FeatherLeather",
+          "win_rate": 100.0,
+          "pnl": 1336294.5902801037,
+          "size": 67249.835267,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xd03cf5ee38ce116533fdcdc827ac7953ed101af802127ce9201c906309144ecb"
+    },
+    {
+      "title": "Arsenal FC vs. Sunderland AFC: O/U 2.5",
+      "slug": "epl-ars-sun-2026-02-07-total-2pt5",
+      "n_traders": 1,
+      "avg_wr": 61.1,
+      "total_invested": 219524.0,
+      "consensus": "Under",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 6.11,
+      "traders": [
+        {
+          "name": "C.SIN",
+          "win_rate": 61.1,
+          "pnl": 581057.0273572402,
+          "size": 219524.37368399996,
+          "outcome": "Under"
+        }
+      ],
+      "conditionId": "0x12ca0bd9753cee3fd9b7e0130bfad8f83ba8459359223725df051ca163d17deb"
+    },
+    {
+      "title": "Real Sociedad de F\u00fatbol vs. Elche CF: O/U 2.5",
+      "slug": "lal-rso-elc-2026-02-07-total-2pt5",
+      "n_traders": 1,
+      "avg_wr": 61.1,
+      "total_invested": 131042.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 6.11,
+      "traders": [
+        {
+          "name": "C.SIN",
+          "win_rate": 61.1,
+          "pnl": 581057.0273572402,
+          "size": 131042.0341,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x4c7a590ffb4964d1cffd79f0cf9642cacbb9d536582ff97bcd700322786beafc"
+    },
+    {
+      "title": "Racing Club de Lens vs. Stade Rennais FC 1901: O/U 3.5",
+      "slug": "fl1-rcl-ren-2026-02-07-total-3pt5",
+      "n_traders": 1,
+      "avg_wr": 61.1,
+      "total_invested": 118150.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 6.11,
+      "traders": [
+        {
+          "name": "C.SIN",
+          "win_rate": 61.1,
+          "pnl": 581057.0273572402,
+          "size": 118149.883957,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0xd142645894cd62c2f15f5bb856b77698dd279c2bc12ecf3152ed4dc2af73445c"
+    },
+    {
+      "title": "Cavaliers vs. Kings",
+      "slug": "nba-cle-sac-2026-02-07",
+      "n_traders": 2,
+      "avg_wr": 40.0,
+      "total_invested": 59508.0,
+      "consensus": "Cavaliers",
+      "consensus_pct": 84.0,
+      "strength": "WEAK",
+      "score": 4.76,
+      "traders": [
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 9508.739283,
+          "outcome": "Kings"
+        },
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 49999.55,
+          "outcome": "Cavaliers"
+        }
+      ],
+      "conditionId": "0x7bddf526fc942294c0de2fbeaee667d6145fe8cb503ab37bba28be88c539be50"
+    },
+    {
+      "title": "Wizards vs. Nets",
+      "slug": "nba-was-bkn-2026-02-07",
+      "n_traders": 1,
+      "avg_wr": 80.0,
+      "total_invested": 36604.0,
+      "consensus": "Nets",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 2.93,
+      "traders": [
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 36603.831082,
+          "outcome": "Nets"
+        }
+      ],
+      "conditionId": "0x0cb8af5c2d8b2c03561f509af4fcd1f592f4c962b20e56e8fd279198e5b8ec07"
+    },
+    {
+      "title": "Cavaliers vs. Kings: O/U 233.5",
+      "slug": "nba-cle-sac-2026-02-07-total-233pt5",
+      "n_traders": 2,
+      "avg_wr": 36.1,
+      "total_invested": 29136.0,
+      "consensus": "Under",
+      "consensus_pct": 85.2,
+      "strength": "WEAK",
+      "score": 2.11,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 4308.1103,
+          "outcome": "Over"
+        },
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 24827.489998,
+          "outcome": "Under"
+        }
+      ],
+      "conditionId": "0xe8331341d73126eef326aaf81fa65100ea295aa2064af3c291264e74481e0428"
+    },
+    {
+      "title": "Newcastle United FC vs. Brentford FC: O/U 2.5",
+      "slug": "epl-new-bre-2026-02-07-total-2pt5",
+      "n_traders": 1,
+      "avg_wr": 61.1,
+      "total_invested": 29831.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 1.82,
+      "traders": [
+        {
+          "name": "C.SIN",
+          "win_rate": 61.1,
+          "pnl": 581057.0273572402,
+          "size": 29830.7644,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x6ef4c540519e4c368a9c29cf53b08c23634651f659fc10db53b4ec3e0268cda1"
+    },
+    {
+      "title": "Spread: Magic (-9.5)",
+      "slug": "nba-uta-orl-2026-02-07-spread-home-9pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 22915.0,
+      "consensus": "Magic",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 1.66,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 22915.0609,
+          "outcome": "Magic"
+        }
+      ],
+      "conditionId": "0xac0574c2fb18a332a48b2589f82cdea1a8085b28e7da736b5081f0868ef131b3"
+    },
+    {
+      "title": "Heat vs. Celtics: O/U 226.5",
+      "slug": "nba-mia-bos-2026-02-06-total-226pt5",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 16336.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 1.63,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 16335.657387000001,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0xdb61dbb867bb7c9aa46927490cf8501d7efac7deb29f9a0d28d8c64170c67c98"
+    },
+    {
+      "title": "AFC Bournemouth vs. Aston Villa FC: O/U 2.5",
+      "slug": "epl-bou-ast-2026-02-07-total-2pt5",
+      "n_traders": 1,
+      "avg_wr": 61.1,
+      "total_invested": 24721.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 1.51,
+      "traders": [
+        {
+          "name": "C.SIN",
+          "win_rate": 61.1,
+          "pnl": 581057.0273572402,
+          "size": 24720.5977,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0xa358629164d0a0fc70cb983dfb2ac362d8bcea2c8994a3d1def5f18c33c92809"
+    },
+    {
+      "title": "UFC Fight Night: Wang Cong vs. Eduarda Moura (Women's Flywei",
+      "slug": "ufc-wan2-edu3-2026-02-07",
+      "n_traders": 1,
+      "avg_wr": 80.0,
+      "total_invested": 18750.0,
+      "consensus": "Cong",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 1.5,
+      "traders": [
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 18750.0,
+          "outcome": "Cong"
+        }
+      ],
+      "conditionId": "0x2fc2e6c31719439943b3c21bd6b04f4ee0f5ca748b6f9b801307259034be05f5"
+    },
+    {
+      "title": "Will Canada win the Men's Ice Hockey gold medal at the 2026 ",
+      "slug": "will-canada-win-the-mens-ice-hockey-gold-medal-at-the-2026-winter-olympics",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 14061.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 1.41,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 14061.382165999996,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x06b611865074cab0ee2991b62be17149ea4912e9cbde167639f2ee882ce28428"
+    },
+    {
+      "title": "US strikes Iran by February 8, 2026?",
+      "slug": "us-strikes-iran-by-february-8-2026",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 8664.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.87,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 8663.876129,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xc734f61dbb7fbf5ff7afac8c18b1f05f13c4b9b408f8f8d6d210a862ebabd00d"
+    },
+    {
+      "title": "US strikes Iran by February 9, 2026?",
+      "slug": "us-strikes-iran-by-february-9-2026-113-751",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 8594.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.86,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 8593.640088000002,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xda368e1f843931105e33e4d00c06e20f962ffc233389b8df15f53efc9d3d2984"
+    },
+    {
+      "title": "Will Travis Scott perform during the Super Bowl LX halftime ",
+      "slug": "will-travis-scott-perform-during-the-super-bowl-lx-halftime-show",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 8194.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.82,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 8193.839672999999,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xbdc37df361983281e28e58f54ff8fedaead95bd23691a7241a70e504505f4301"
+    },
+    {
+      "title": "Will One Battle After Another win Best Cinematography at the",
+      "slug": "will-one-battle-after-another-win-best-cinematography-at-the-98th-academy-awards",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 8000.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.8,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 7999.999999999999,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x8cbdce3051fb67c33858b5a2e35a67f74c68e5f7c5f405232c13ddd538c02745"
+    },
+    {
+      "title": "US strikes Iran by February 28, 2026?",
+      "slug": "us-strikes-iran-by-february-28-2026-227-967-547-688-589-491-592-418-452-924-384-915-464-672-196-157-993-596-269-535",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 6935.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.69,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 6934.593663,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x3488f31e6449f9803f99a8b5dd232c7ad883637f1c86e6953305a2ef19c77f20"
+    },
+    {
+      "title": "Spread: Magic (-7.5)",
+      "slug": "nba-uta-orl-2026-02-07-spread-home-7pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 8459.0,
+      "consensus": "Magic",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.61,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 8458.81,
+          "outcome": "Magic"
+        }
+      ],
+      "conditionId": "0x0f3349f644a6ae3897199211f39e87f4323e32b93aaf2d3719d661c48b68fe95"
+    },
+    {
+      "title": "US strikes Iran by March 31, 2026?",
+      "slug": "us-strikes-iran-by-march-31-2026-393-221-132-633-215-592-866-184-321-377-931-222-297-655-719-935-944-321-534-925-937-744-476-586-454-914-676-972-362",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 5442.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.54,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 5442.360000000001,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x4b02efe53e631ada84681303fd66d79ad615f3d2b6a28b4633d43d935f89af58"
+    },
+    {
+      "title": "UFC Fight Night: Bruna Brasil vs. Ketlen Souza (Women's Stra",
+      "slug": "ufc-bru8-ket1-2026-02-07",
+      "n_traders": 1,
+      "avg_wr": 80.0,
+      "total_invested": 5180.0,
+      "consensus": "Brasil",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.41,
+      "traders": [
+        {
+          "name": "joosangyoo",
+          "win_rate": 80.0,
+          "pnl": 1041661.0268960411,
+          "size": 5179.991852,
+          "outcome": "Brasil"
+        }
+      ],
+      "conditionId": "0x85a74e379ddf128c20c8e5ba39ec3d15307503534ed41cad7f0f94af49aecd89"
+    },
+    {
+      "title": "US strikes Iran by June 30, 2026?",
+      "slug": "us-strikes-iran-by-june-30-2026-699-664-723-485-753-218-567-164-387-443-377-384-159-973-494-631-694-956-361-443-224-518-537-678-486-386-275-153",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 3961.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.4,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 3960.66,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x797d586ad45522306490b0cc9b2f21bdf957f3843476fae99f3bcc2cec83b74b"
+    },
+    {
+      "title": "Will Bad Bunny perform during the Super Bowl LX halftime sho",
+      "slug": "will-bad-bunny-perform-during-the-super-bowl-lx-halftime-show",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 3798.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.38,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 3797.85532,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x2f10c3028e5dbb337da539a98ba71a083bcc2e0827e87f35ad8afe109d037646"
+    },
+    {
+      "title": "Will \"Tit\u00ed Me Pregunt\u00f3\" be played first at the Super Bowl ha",
+      "slug": "will-tit-me-pregunt-be-played-first-at-the-super-bowl-halftime-show",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 2985.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.3,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 2984.52,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x173550a8d98dca2fe7ed292ac63242ebe38bc84dfd8ae4592716b73f9dff90b0"
+    },
+    {
+      "title": "Rockets vs. Thunder: O/U 212.5",
+      "slug": "nba-hou-okc-2026-02-07-total-212pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 3916.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.28,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 3915.5128,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x8c2ee1ef0c1e95af178639387967b8eed3bb4c8227048fca27fea3763ff996ff"
+    },
+    {
+      "title": "Another US government shutdown by February 14?",
+      "slug": "another-us-government-shutdown-by-february-14",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 2677.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.27,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 2676.5713470000005,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x4b78de44ea49d0eb8d5fee85352294b6f679a47c56944c6ad5c945e9a2ba7211"
+    },
+    {
+      "title": "Bad Bunny wears a dress or skirt at the Sup\u00e1 Bowl?",
+      "slug": "bad-bunny-wears-a-dress-at-the-super-bowl",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 2254.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.23,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 2254.103465,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x206c3143628df465c101393d0f332f5e0e7ea1250c4a5406c5d7107cdf22a669"
+    },
+    {
+      "title": "ACF Fiorentina vs. Torino FC: O/U 2.5",
+      "slug": "sea-fio-tor-2026-02-07-total-2pt5",
+      "n_traders": 1,
+      "avg_wr": 61.1,
+      "total_invested": 3573.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.22,
+      "traders": [
+        {
+          "name": "C.SIN",
+          "win_rate": 61.1,
+          "pnl": 581057.0273572402,
+          "size": 3572.55,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x27f43383502f0a36b62fee8b9281d9fc4dea21ce25b967b94e88549ae6cabef0"
+    },
+    {
+      "title": "Spread: Spurs (-10.5)",
+      "slug": "nba-dal-sas-2026-02-07-spread-home-10pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 2707.0,
+      "consensus": "Spurs",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.2,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 2707.2414,
+          "outcome": "Spurs"
+        }
+      ],
+      "conditionId": "0x38a5143d82379735c9bb6393675ce507d61064aee9cb0a7603255204c9cb799c"
+    },
+    {
+      "title": "US strikes Iran by February 7, 2026?",
+      "slug": "us-strikes-iran-by-february-7-2026",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 2031.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.2,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 2030.548816,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x22cd37c5d898b14fb912e2f7501cdc76760551c483c9fb9f78f61b21eebfcb24"
+    },
+    {
+      "title": "Bad Bunny video becomes most viewed SB halftime on YouTube i",
+      "slug": "bad-bunny-video-becomes-most-viewed-sb-halftime-on-youtube-in-1st-month",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 1992.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.2,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 1991.601,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x6f25f141f419455b5eedaed91fe42a0296ed4ed2c51939a2640e39948822fa18"
+    },
+    {
+      "title": "Will \"LA MUDANZA\" be played first at the Super Bowl halftime",
+      "slug": "will-la-mudanza-be-played-first-at-the-super-bowl-halftime-show",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 1708.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.17,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 1707.8837660000008,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x97815079f005c08321f0d338c24a5924e762a55336d4b8c75d47a5a00a5d5e1d"
+    },
+    {
+      "title": "Russia x Ukraine ceasefire by end of 2026?",
+      "slug": "russia-x-ukraine-ceasefire-before-2027",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 1561.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.16,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 1560.8551500000005,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0xaeea5f917fc5746387b5f9c0a4263dba035dbb3f0ac6ad72bf92183d21e26739"
+    },
+    {
+      "title": "Spread: Thunder (-3.5)",
+      "slug": "nba-hou-okc-2026-02-07-spread-home-3pt5",
+      "n_traders": 1,
+      "avg_wr": 72.3,
+      "total_invested": 1603.0,
+      "consensus": "Thunder",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.12,
+      "traders": [
+        {
+          "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+          "win_rate": 72.3,
+          "pnl": 1910577.3668627795,
+          "size": 1603.0,
+          "outcome": "Thunder"
+        }
+      ],
+      "conditionId": "0x33f8ab137c94c88f3a003df310958d33ced2a695fa5bdd17515dd0abc0b396dd"
+    },
+    {
+      "title": "Will Claude 5 be released by February 14, 2026?",
+      "slug": "will-claude-5-be-released-by-february-14-2026-449",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 1008.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.1,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 1008.23315,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x322c28c81160348a9fd0a3e621c2743b21d16bdbd04b28b7ebd88bfd02380d11"
+    },
+    {
+      "title": "Will United States win the Men's Ice Hockey gold medal at th",
+      "slug": "will-united-states-win-the-mens-ice-hockey-gold-medal-at-the-2026-winter-olympics",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 943.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.09,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 943.340569,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x8a9e31d88af7b0c085c8482e6daa2cf1034794d8b724de19c1c5673cde6d496d"
+    },
+    {
+      "title": "Will Switzerland win the Men's Ice Hockey gold medal at the ",
+      "slug": "will-switzerland-win-the-mens-ice-hockey-gold-medal-at-the-2026-winter-olympics",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 870.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.09,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 870.3043930000005,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0xcbcd46dff2dd487c9f40a5871ce03250eab576d01770cef5e1aada827889757c"
+    },
+    {
+      "title": "Will there be between 6 and 9 US strikes on Somalia in Febru",
+      "slug": "will-there-be-between-6-and-9-us-strikes-on-somalia-in-february-2026",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 746.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.07,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 746.2829099999999,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xaf798066a1d86a6f8d25a40fac846a4ba6a6eba4bb62a2574273bb7f415e92ff"
+    },
+    {
+      "title": "Will NVIDIA be the largest company in the world by market ca",
+      "slug": "will-nvidia-be-the-largest-company-in-the-world-by-market-cap-on-february-28-846",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 742.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.07,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 742.3461269999998,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xa5fa2094af61fdfdb0398c22c4f1bb8788cabc680bcc0042f77c6388b23afaf4"
+    },
+    {
+      "title": "Will US or Israel strike Iran by February 15, 2026?",
+      "slug": "will-us-or-israel-strike-iran-by-february-15-2026-761",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 728.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.07,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 727.983821,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x38c0342fb672f38ad0990e98d6cc81d021a0c210fdb8c23ff086742b8a873c51"
+    },
+    {
+      "title": "Will Leonardo DiCaprio win Best Actor at the 98th Academy Aw",
+      "slug": "will-leonardo-dicaprio-win-best-actor-at-the-98th-academy-awards",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 495.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.05,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 495.42901500000005,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x5178aec93c1c06f5f2f9bacc30391f37c87dac5fac060ab44c775cf2915b9fc0"
+    },
+    {
+      "title": "Will US or Israel strike Iran by February 28, 2026?",
+      "slug": "will-us-or-israel-strike-iran-by-february-28-2026-766",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 548.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.05,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 548.019378,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xdc4b9ecbfac2c8e98fe18b35c4578a3c64e34ddfe16b1cf8a98ab3ad9d06c088"
+    },
+    {
+      "title": "Israel strikes Iran by February 28, 2026?",
+      "slug": "israel-strikes-iran-by-february-28-2026",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 433.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.04,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 432.673504,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x291f0f6023efa933d36cc80fd55f9d176309a92b61b9567fd4f044a8b21873fb"
+    },
+    {
+      "title": "Will Claude 5 be released by February 28, 2026?",
+      "slug": "will-claude-5-be-released-by-february-28-2026-352-784",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 421.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.04,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 420.7265100000001,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x904813dbc02417ef42534a4522c4efe117f2be7d24b72860c0fffde38ea6c9e8"
+    },
+    {
+      "title": "Russia x Ukraine ceasefire by March 31, 2026?",
+      "slug": "russia-x-ukraine-ceasefire-by-march-31-2026",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 291.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.03,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 291.2878480000001,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x1d54eb5eac2cee8f595f3097c65da7d07f8ab5dee63d7c0c6883eb70e1e9af30"
+    },
+    {
+      "title": "Will the US strike Syria next?",
+      "slug": "will-the-us-strike-syria-next-652",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 280.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.03,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 280.18261900000005,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x92e0a9e929b80f5cb5cc45251809d1ec6ab772b745850d919fc9e7d21d6d9ddc"
+    },
+    {
+      "title": "Will \"BAILE INOLVIDABLE\" be played first at the Super Bowl h",
+      "slug": "will-baile-inolvidable-be-played-first-at-the-super-bowl-halftime-show",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 200.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.02,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 200.1175910000001,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0xcdd1ffa649532866d1577b1ab0494f143629f435b63342c1f736f4e2dd1ec559"
+    },
+    {
+      "title": "Will Norway win the most gold medals in the 2026 Winter Olym",
+      "slug": "will-norway-win-the-most-gold-medals-in-the-2026-winter-olympics",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 105.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "FeatherLeather",
+          "win_rate": 100.0,
+          "pnl": 1336294.5902801037,
+          "size": 105.4,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x9dde2865d61deaeae5e1ed23c3cc2d3645f354f807d46d8108df293f8681b9a2"
+    },
+    {
+      "title": "Seahawks vs. Patriots",
+      "slug": "nfl-sea-ne-2026-02-08",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 102.0,
+      "consensus": "Seahawks",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "FeatherLeather",
+          "win_rate": 100.0,
+          "pnl": 1336294.5902801037,
+          "size": 102.0,
+          "outcome": "Seahawks"
+        }
+      ],
+      "conditionId": "0x204d24f3a0f5dd5fca825292bdeab6a97af3978b2caa2b21bb37e610eddfff5d"
+    },
+    {
+      "title": "Will Sean Penn win Best Supporting Actor at the 98th Academy",
+      "slug": "will-sean-penn-win-best-supporting-actor-at-the-98th-academy-awards",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 80.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 79.624,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xb9223ddfda277ecf96cea52aba3d6a47e3bb001bf0173fb3e2145566c28e0c24"
+    },
+    {
+      "title": "U.S. strike on Somalia by February 7?",
+      "slug": "us-strike-on-somalia-by-february-7-553",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 111.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 111.30527300000001,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xa21166d22bf3aa73b431e2d01db57cc8449ec47ba02b77282d74bfac34c1712a"
+    },
+    {
+      "title": "Will Apple be the largest company in the world by market cap",
+      "slug": "will-apple-be-the-largest-company-in-the-world-by-market-cap-on-february-28-781",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 107.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 107.48334399999999,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0xcc7191d618ab96b21b8ae7aeec1a5f7f6c40f4b2fde26ac34580f9187b90b0d2"
+    },
+    {
+      "title": "Will US or Israel strike Iran by March 31, 2026?",
+      "slug": "will-us-or-israel-strike-iran-by-march-31-2026-233",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 53.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 52.8,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0x3725dfa6b17797bd51879ecc3893142bf058be6c9e81bfd72f309060bb387f85"
+    },
+    {
+      "title": "Will \"NUEVAYOL\" be played first at the Super Bowl halftime s",
+      "slug": "will-nuevayol-be-played-first-at-the-super-bowl-halftime-show",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 50.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.01,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 50.442400000000006,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x4dab1a074a9dbfc122f49b1b4e683d0b9960738107623d2dfd974eb98865a020"
+    },
+    {
+      "title": "Will Timoth\u00e9e Chalamet win Best Actor at the 98th Academy Aw",
+      "slug": "will-timothe-chalamet-win-best-actor-at-the-98th-academy-awards",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 37.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 37.0152,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0xd185f10a7d0f07e733e02a6811fc2930fb7478166107669fe58bd7ba37aa9895"
+    },
+    {
+      "title": "Will Sentimental Value win Best International Feature Film a",
+      "slug": "will-sentimental-value-win-best-international-feature-film-at-the-98th-academy-awards",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 13.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 13.3765,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xcde726fec24de4c7e8217564499026a30e6944a3504fabc68597396440e0c798"
+    },
+    {
+      "title": "Will Czech Republic win the Men's Ice Hockey gold medal at t",
+      "slug": "will-czech-republic-win-the-mens-ice-hockey-gold-medal-at-the-2026-winter-olympics",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 6.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "weflyhigh",
+          "win_rate": 100.0,
+          "pnl": 949620.1964748185,
+          "size": 6.365855,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x92e7838fce13c9d2cbf6913e5434d0c61c678ed601ab0bff8ba2cbe1a392dce6"
+    },
+    {
+      "title": "Hornets vs. Hawks",
+      "slug": "nba-cha-atl-2026-02-07",
+      "n_traders": 2,
+      "avg_wr": 0.0,
+      "total_invested": 155546.0,
+      "consensus": "Hawks",
+      "consensus_pct": 67.9,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 105545.77275699998,
+          "outcome": "Hawks"
+        },
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 49999.95,
+          "outcome": "Hornets"
+        }
+      ],
+      "conditionId": "0x7facbb07c1b0a43cabc496f18815795d8f88f1280ef1ab97af17a81ea3c2c755"
+    },
+    {
+      "title": "Spread: Lakers (-1.5)",
+      "slug": "nba-gsw-lal-2026-02-07-spread-home-1pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 22050.0,
+      "consensus": "Warriors",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 22049.994042000002,
+          "outcome": "Warriors"
+        }
+      ],
+      "conditionId": "0x2697d6de32673996c167e84bb15aba82fd770182a07a87660f6381e03fee5192"
+    },
+    {
+      "title": "Spread: Nuggets (-7.5)",
+      "slug": "nba-den-chi-2026-02-07-spread-away-7pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 17850.0,
+      "consensus": "Bulls",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 17849.95607,
+          "outcome": "Bulls"
+        }
+      ],
+      "conditionId": "0xc2cdf4be309000cf811aa21df3b922ee2bad839cfd0b352b1a7c9d1635d403a6"
+    },
+    {
+      "title": "Spread: Trail Blazers (-9.5)",
+      "slug": "nba-mem-por-2026-02-07-spread-home-9pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 13343.0,
+      "consensus": "Grizzlies",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 13342.704806000002,
+          "outcome": "Grizzlies"
+        }
+      ],
+      "conditionId": "0xd18b8254172510c79ecfe85ae6f1d25c9ebd14139f2fa30062ce33ee7d3f6e5e"
+    },
+    {
+      "title": "Grizzlies vs. Trail Blazers",
+      "slug": "nba-mem-por-2026-02-07",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 7024.0,
+      "consensus": "Grizzlies",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 7024.0349959999985,
+          "outcome": "Grizzlies"
+        }
+      ],
+      "conditionId": "0xdb21753d2839971428668769bd92150c077407b1b1c5cb336df4b05d01f03b0d"
+    },
+    {
+      "title": "Spread: Trail Blazers (-10.5)",
+      "slug": "nba-mem-por-2026-02-07-spread-home-10pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 5515.0,
+      "consensus": "Grizzlies",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 5515.157348,
+          "outcome": "Grizzlies"
+        }
+      ],
+      "conditionId": "0x9244f6ea15408325364cccc30596bbb9c9761316e95cf5a058a609751cc85349"
+    },
+    {
+      "title": "Spread: Lakers (-3.5)",
+      "slug": "nba-gsw-lal-2026-02-07-spread-home-3pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 3964.0,
+      "consensus": "Warriors",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 3963.692725,
+          "outcome": "Warriors"
+        }
+      ],
+      "conditionId": "0x07c2bae181932a9288618270aef0c6536e8a92edcd7965171f52889419a99492"
+    },
+    {
+      "title": "Spread: Hornets (-1.5)",
+      "slug": "nba-cha-atl-2026-02-07-spread-away-1pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 3002.0,
+      "consensus": "Hawks",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 3001.693291,
+          "outcome": "Hawks"
+        }
+      ],
+      "conditionId": "0xfdc8f1378381ce353dfb40c817ef6312836e7b9f03be85f0e25a878eff084933"
+    },
+    {
+      "title": "Spread: Lakers (-2.5)",
+      "slug": "nba-gsw-lal-2026-02-07-spread-home-2pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 214.0,
+      "consensus": "Warriors",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 213.665291,
+          "outcome": "Warriors"
+        }
+      ],
+      "conditionId": "0x6296eee48cf48dbb29df6db8b12128bb62bf058b3a510d5a323267d8c48d436f"
+    },
+    {
+      "title": "Spread: Trail Blazers (-8.5)",
+      "slug": "nba-mem-por-2026-02-07-spread-home-8pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 65.0,
+      "consensus": "Grizzlies",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 64.615384,
+          "outcome": "Grizzlies"
+        }
+      ],
+      "conditionId": "0x2143e247c8df3346b874b79b68dcf3e4f9ac87073711b980d90d674cf1c19a6d"
+    },
+    {
+      "title": "Spread: Nuggets (-5.5)",
+      "slug": "nba-den-chi-2026-02-07-spread-away-5pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 9.0,
+      "consensus": "Bulls",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 9.0343,
+          "outcome": "Bulls"
+        }
+      ],
+      "conditionId": "0x615b578f1bae9232270a48275937dd6bc8307451abcc1bc8afb50eb9524499f9"
+    },
+    {
+      "title": "Spread: Nuggets (-6.5)",
+      "slug": "nba-den-chi-2026-02-07-spread-away-6pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 8.0,
+      "consensus": "Bulls",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 7.5348,
+          "outcome": "Bulls"
+        }
+      ],
+      "conditionId": "0x13ce08fdd0e50e43d186466e02a40b8888f5dc3b8608b0dfb445d546f9bf6a73"
+    },
+    {
+      "title": "Will the Houston Rockets win the 2026 NBA Finals?",
+      "slug": "will-the-houston-rockets-win-the-2026-nba-finals",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 2.0,
+      "consensus": "Yes",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "Countryside",
+          "win_rate": 0,
+          "pnl": 899773.322462745,
+          "size": 1.68,
+          "outcome": "Yes"
+        }
+      ],
+      "conditionId": "0x9b56568af78dd036b03c641e0673729d72cd7d63578eb0119cd23eb1f94f1b56"
+    },
+    {
+      "title": "Jazz vs. Magic",
+      "slug": "nba-uta-orl-2026-02-07",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 68075.0,
+      "consensus": "Magic",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 68074.56076700003,
+          "outcome": "Magic"
+        }
+      ],
+      "conditionId": "0xd9cd7f398c210c4911f6e4a58c445df7b0e483ef4426a52614000750ed9eefbc"
+    },
+    {
+      "title": "Hornets vs. Hawks: O/U 231.5",
+      "slug": "nba-cha-atl-2026-02-07-total-231pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 37407.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 37407.069999,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x46ad8e73a1c4c3b58bf9fabf22dbfe11a137c42623009095487e4ec48bffd206"
+    },
+    {
+      "title": "Cavaliers vs. Kings: O/U 231.5",
+      "slug": "nba-cle-sac-2026-02-07-total-231pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 27394.0,
+      "consensus": "Under",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 27394.338399,
+          "outcome": "Under"
+        }
+      ],
+      "conditionId": "0x3754d6ad0515ead0d10c38873eeb42ed80cddf7f203a56af018babdd831f7c13"
+    },
+    {
+      "title": "Cavaliers vs. Kings: O/U 230.5",
+      "slug": "nba-cle-sac-2026-02-07-total-230pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 27307.0,
+      "consensus": "Under",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 27307.4064,
+          "outcome": "Under"
+        }
+      ],
+      "conditionId": "0xd118ff14bb7f1aceb8a1130d1db15708b5620fe2bbfb54379baef5582eb9ef56"
+    },
+    {
+      "title": "Hornets vs. Hawks: O/U 230.5",
+      "slug": "nba-cha-atl-2026-02-07-total-230pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 24526.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 24525.959999,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x9fcec72260f423c8a84be823fc0b82179015aa4e0a334fdd6d711b71881f362e"
+    },
+    {
+      "title": "Hornets vs. Hawks: O/U 229.5",
+      "slug": "nba-cha-atl-2026-02-07-total-229pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 16665.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 16665.0,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x20a997d510b2e590811c80990392aa3e2f5ff859a2f84c595cdc2e98107ebf8e"
+    },
+    {
+      "title": "Cavaliers vs. Kings: O/U 232.5",
+      "slug": "nba-cle-sac-2026-02-07-total-232pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 11265.0,
+      "consensus": "Under",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 11265.479999,
+          "outcome": "Under"
+        }
+      ],
+      "conditionId": "0x9cac5121c841e54f7e1311dd823374b6078adf7b52cf09dd346c87c57949355c"
+    },
+    {
+      "title": "Nuggets vs. Bulls: O/U 234.5",
+      "slug": "nba-den-chi-2026-02-07-total-234pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 4661.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 4661.279999,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0xe0768bc354a775265da37c0261ed66cd29dd51f64845d9de2e4abd2bec377507"
+    },
+    {
+      "title": "Nuggets vs. Bulls: O/U 233.5",
+      "slug": "nba-den-chi-2026-02-07-total-233pt5",
+      "n_traders": 1,
+      "avg_wr": 0.0,
+      "total_invested": 810.0,
+      "consensus": "Over",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "tbs8t",
+          "win_rate": 0,
+          "pnl": 760346.0525397062,
+          "size": 810.0,
+          "outcome": "Over"
+        }
+      ],
+      "conditionId": "0x0f65f149fb7e94cf46c3906f539ef6c82c550c55ec5ece250b1b932327f1a8f4"
+    },
+    {
+      "title": "Will Mar\u00eda Corina Machado enter Venezuela by March 31?",
+      "slug": "will-mara-corina-machado-enter-venezuela-by-march-31-426-698",
+      "n_traders": 1,
+      "avg_wr": 100.0,
+      "total_invested": 3.0,
+      "consensus": "No",
+      "consensus_pct": 100.0,
+      "strength": "WEAK",
+      "score": 0.0,
+      "traders": [
+        {
+          "name": "anoin123",
+          "win_rate": 100.0,
+          "pnl": 547098.350237126,
+          "size": 2.703703,
+          "outcome": "No"
+        }
+      ],
+      "conditionId": "0xbfe12fe58a5aadd010d319ca422158cd5f5036b156519955ea649d77327fa95d"
+    }
+  ],
+  "traders_analyzed": 8,
+  "trader_details": [
+    {
+      "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+      "wr": 72.3,
+      "pnl": 1910577.3668627795,
+      "active": 14,
+      "wins": 34,
+      "losses": 13
+    },
+    {
+      "name": "FeatherLeather",
+      "wr": 100.0,
+      "pnl": 1336294.5902801037,
+      "active": 4,
+      "wins": 4,
+      "losses": 0
+    },
+    {
+      "name": "joosangyoo",
+      "wr": 80.0,
+      "pnl": 1041661.0268960411,
+      "active": 7,
+      "wins": 4,
+      "losses": 1
+    },
+    {
+      "name": "weflyhigh",
+      "wr": 100.0,
+      "pnl": 949620.1964748185,
+      "active": 13,
+      "wins": 4,
+      "losses": 0
+    },
+    {
+      "name": "Countryside",
+      "wr": 0,
+      "pnl": 899773.322462745,
+      "active": 14,
+      "wins": 0,
+      "losses": 0
+    },
+    {
+      "name": "tbs8t",
+      "wr": 0,
+      "pnl": 760346.0525397062,
+      "active": 15,
+      "wins": 0,
+      "losses": 0
+    },
+    {
+      "name": "C.SIN",
+      "wr": 61.1,
+      "pnl": 581057.0273572402,
+      "active": 6,
+      "wins": 22,
+      "losses": 14
+    },
+    {
+      "name": "anoin123",
+      "wr": 100.0,
+      "pnl": 547098.350237126,
+      "active": 29,
+      "wins": 3,
+      "losses": 0
+    }
+  ]
+}

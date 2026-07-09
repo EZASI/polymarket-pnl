@@ -1,0 +1,50 @@
+{
+  "config": {
+    "bankroll": 10000,
+    "max_bet": 500,
+    "kelly_alpha": 0.25,
+    "n_test_markets": 2000
+  },
+  "strategies": {
+    "Core Buy-Exit": {
+      "trades": 18,
+      "wins": 11,
+      "win_rate": 0.6111,
+      "total_pnl": 518.58,
+      "profit_factor": 1.1841,
+      "sharpe": 25.8,
+      "avg_edge_bps": 5366.1,
+      "total_fees": 284.51
+    },
+    "Oracle Snipe": {
+      "trades": 11,
+      "wins": 5,
+      "win_rate": 0.4545,
+      "total_pnl": -695.05,
+      "profit_factor": 0.7747,
+      "sharpe": -41.5,
+      "avg_edge_bps": 2.2,
+      "total_fees": 160.0
+    },
+    "Stat Model Arb": {
+      "trades": 16,
+      "wins": 10,
+      "win_rate": 0.625,
+      "total_pnl": 1890.22,
+      "profit_factor": 1.6592,
+      "sharpe": 82.8,
+      "avg_edge_bps": 2238.5,
+      "total_fees": -39.41
+    }
+  },
+  "aggregate": {
+    "total_trades": 45,
+    "total_pnl": 1713.75,
+    "final_bankroll": 11713.75,
+    "max_drawdown": 0.4001
+  },
+  "daily_pnl": {
+    "2026-01-23": 1713.7486315740189
+  },
+  "timestamp": "2026-02-16T00:50:23.481599+00:00"
+}

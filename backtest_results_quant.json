@@ -1,0 +1,57 @@
+{
+  "config": {
+    "interval_min": 5,
+    "bankroll": 10000.0,
+    "kelly_alpha": 0.25,
+    "edge_threshold": 0.02,
+    "max_bet": 500.0,
+    "train_pct": 0.6,
+    "n_total_rounds": 5000,
+    "n_train": 3000,
+    "n_test": 2000
+  },
+  "results": {
+    "Ensemble Only": {
+      "n_trades": 9,
+      "win_rate": 0.2222,
+      "total_pnl": -1578.46,
+      "final_bankroll": 8421.54,
+      "max_drawdown": 0.1578,
+      "profit_factor": 0.1657,
+      "sharpe": -270.26,
+      "brier_score": 0.2502,
+      "d_kl": 0.001159,
+      "avg_edge": 0.0617
+    },
+    "Lead-Lag Only": {
+      "n_trades": 19,
+      "win_rate": 0.5263,
+      "total_pnl": 704.86,
+      "final_bankroll": 10704.86,
+      "max_drawdown": 0.1788,
+      "profit_factor": 1.1701,
+      "sharpe": 25.41,
+      "brier_score": 0.2766,
+      "d_kl": 0.055287,
+      "avg_edge": 0.2045
+    },
+    "Combined (60/40)": {
+      "n_trades": 40,
+      "win_rate": 0.5,
+      "total_pnl": 347.52,
+      "final_bankroll": 10347.52,
+      "max_drawdown": 0.1767,
+      "profit_factor": 1.0517,
+      "sharpe": 7.55,
+      "brier_score": 0.2545,
+      "d_kl": 0.008896,
+      "avg_edge": 0.0742
+    }
+  },
+  "baselines": {
+    "always_yes_pnl": 828.94,
+    "random_pnl": 725.72,
+    "market_brier": 0.245
+  },
+  "timestamp": "2026-02-15T15:21:49.683156+00:00"
+}

@@ -1,0 +1,492 @@
+{
+  "agent": "agent_23",
+  "strategy": "weather_latency_arb",
+  "time": "2026-02-08T03:49:45.676256+00:00",
+  "cities_fetched": [
+    "nyc",
+    "chicago",
+    "miami",
+    "seattle",
+    "dallas",
+    "atlanta",
+    "london",
+    "toronto",
+    "buenos aires",
+    "seoul",
+    "ankara",
+    "wellington"
+  ],
+  "weather_events_found": 28,
+  "weather_markets_found": 192,
+  "signals": [
+    {
+      "market": "Will the highest temperature in New York City be 15\u00b0F or below on February 8?",
+      "condition_id": "0x2f544a6e97c30aaf29561be1cb7fc22c7766a5d7be086cfbca01c806dcfdd7af",
+      "price": 0.029,
+      "direction": "YES",
+      "forecast_temp": 18,
+      "bracket": "5-15\u00b0F",
+      "model_prob": 0.159,
+      "edge": 0.13,
+      "confidence": 0.86,
+      "city": "nyc",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in New York City be between 16-17\u00b0F on February 8?",
+      "condition_id": "0x8375063aa4788a9b4afdd5f334a49f1412ed31fd728370ab3603837ef5f21383",
+      "price": 0.21,
+      "direction": "NO",
+      "forecast_temp": 18,
+      "bracket": "16-17\u00b0F",
+      "model_prob": 0.117,
+      "edge": -0.093,
+      "confidence": 0.62,
+      "city": "nyc",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in New York City be between 18-19\u00b0F on February 8?",
+      "condition_id": "0xc0c7b96c01ff71f0b059e7b5de0cdccec19508772f3a3688f770be38dd595496",
+      "price": 0.52,
+      "direction": "NO",
+      "forecast_temp": 18,
+      "bracket": "18-19\u00b0F",
+      "model_prob": 0.131,
+      "edge": -0.389,
+      "confidence": 1.0,
+      "city": "nyc",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in New York City be between 20-21\u00b0F on February 8?",
+      "condition_id": "0xa20962e86234e2f2175e8041a3714b0e2d76d07a56ac16e54c4ebc2e93f796d7",
+      "price": 0.26,
+      "direction": "NO",
+      "forecast_temp": 18,
+      "bracket": "20-21\u00b0F",
+      "model_prob": 0.094,
+      "edge": -0.166,
+      "confidence": 1.0,
+      "city": "nyc",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Chicago be between 28-29\u00b0F on February 8?",
+      "condition_id": "0x05040d68377735a0364d04ad6a46c2f8dc8b500dfecde1fc9b25860dec283015",
+      "price": 0.245,
+      "direction": "NO",
+      "forecast_temp": 30,
+      "bracket": "28-29\u00b0F",
+      "model_prob": 0.117,
+      "edge": -0.128,
+      "confidence": 0.85,
+      "city": "chicago",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Chicago be between 30-31\u00b0F on February 8?",
+      "condition_id": "0xdec1e73e47612b3cf7005c5fe7979d6eac3aca6b8fca430af093b941cd5c4a72",
+      "price": 0.405,
+      "direction": "NO",
+      "forecast_temp": 30,
+      "bracket": "30-31\u00b0F",
+      "model_prob": 0.131,
+      "edge": -0.274,
+      "confidence": 1.0,
+      "city": "chicago",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Chicago be between 32-33\u00b0F on February 8?",
+      "condition_id": "0x3e985540de9e1d2bde0ef5235d08698b48c9cffd286c8e0d433de3b33f46942b",
+      "price": 0.205,
+      "direction": "NO",
+      "forecast_temp": 30,
+      "bracket": "32-33\u00b0F",
+      "model_prob": 0.094,
+      "edge": -0.111,
+      "confidence": 0.74,
+      "city": "chicago",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Miami be 70\u00b0F or higher on February 8?",
+      "condition_id": "0x1e3b30022f14c3a4c399d1d25e4c7cbe9fdd283507cc0e447d29299e5ce41533",
+      "price": 0.966,
+      "direction": "NO",
+      "forecast_temp": 71,
+      "bracket": "70-80\u00b0F",
+      "model_prob": 0.629,
+      "edge": -0.337,
+      "confidence": 1.0,
+      "city": "miami",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Seattle be between 48-49\u00b0F on February 8?",
+      "condition_id": "0x787648f1062284add37675f6a23cfcb245cfee24ba330ef99e589920abcc915b",
+      "price": 0.3,
+      "direction": "NO",
+      "forecast_temp": 51,
+      "bracket": "48-49\u00b0F",
+      "model_prob": 0.094,
+      "edge": -0.206,
+      "confidence": 1.0,
+      "city": "seattle",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Seattle be between 50-51\u00b0F on February 8?",
+      "condition_id": "0x3a733af1a0dc495de9f595f6b302194a3416a3eaca88b90f22018902b8de4dd2",
+      "price": 0.365,
+      "direction": "NO",
+      "forecast_temp": 51,
+      "bracket": "50-51\u00b0F",
+      "model_prob": 0.131,
+      "edge": -0.234,
+      "confidence": 1.0,
+      "city": "seattle",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Seattle be between 52-53\u00b0F on February 8?",
+      "condition_id": "0xf478145e833d8b2348484af35d4274e4e3ce5949394451604fddcaa7249a0ea6",
+      "price": 0.205,
+      "direction": "NO",
+      "forecast_temp": 51,
+      "bracket": "52-53\u00b0F",
+      "model_prob": 0.117,
+      "edge": -0.088,
+      "confidence": 0.59,
+      "city": "seattle",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Seattle be 54\u00b0F or higher on February 8?",
+      "condition_id": "0xd179fbcae1cd909479589e1a5d8593ebd81f2ecc1702db2519e8e0b2404ffab7",
+      "price": 0.028,
+      "direction": "YES",
+      "forecast_temp": 51,
+      "bracket": "54-64\u00b0F",
+      "model_prob": 0.159,
+      "edge": 0.131,
+      "confidence": 0.87,
+      "city": "seattle",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Dallas be 76\u00b0F or higher on February 8?",
+      "condition_id": "0xb00ece224d9ab1da9f9d11868c1e2ca43bd1029cb51254250545a437b09bef36",
+      "price": 0.815,
+      "direction": "NO",
+      "forecast_temp": 77,
+      "bracket": "76-86\u00b0F",
+      "model_prob": 0.629,
+      "edge": -0.186,
+      "confidence": 1.0,
+      "city": "dallas",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Atlanta be between 56-57\u00b0F on February 8?",
+      "condition_id": "0x67b38d686f224b6bec063b49d83c9366c89dd68eab3035ae35e4176eb404434a",
+      "price": 0.29,
+      "direction": "NO",
+      "forecast_temp": 56,
+      "bracket": "56-57\u00b0F",
+      "model_prob": 0.131,
+      "edge": -0.159,
+      "confidence": 1.0,
+      "city": "atlanta",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Atlanta be between 58-59\u00b0F on February 8?",
+      "condition_id": "0xfae96159d7f4463fa6547666107f431dd3e39c74eefe53b729113a97e45dbc1d",
+      "price": 0.38,
+      "direction": "NO",
+      "forecast_temp": 56,
+      "bracket": "58-59\u00b0F",
+      "model_prob": 0.094,
+      "edge": -0.286,
+      "confidence": 1.0,
+      "city": "atlanta",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in Atlanta be 60\u00b0F or higher on February 8?",
+      "condition_id": "0x7b8e6792b23e4cc18d577d971969f08044b821b21fd076ed29a87352815cd512",
+      "price": 0.19,
+      "direction": "NO",
+      "forecast_temp": 56,
+      "bracket": "60-70\u00b0F",
+      "model_prob": 0.091,
+      "edge": -0.099,
+      "confidence": 0.66,
+      "city": "atlanta",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in London be 9\u00b0C on February 8?",
+      "condition_id": "0x4a232e92c47df997a865a07624dea35ab09c8fb83b53fd941b4665d8c109991b",
+      "price": 0.006,
+      "direction": "YES",
+      "forecast_temp": 11.2,
+      "bracket": "9-9\u00b0C",
+      "model_prob": 0.101,
+      "edge": 0.094,
+      "confidence": 0.63,
+      "city": "london",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in London be 10\u00b0C on February 8?",
+      "condition_id": "0xbfe96afe98cdac941870a07e23b1624f6d0b74b6af4a1a90769a4bbf9edb62ae",
+      "price": 0.045,
+      "direction": "YES",
+      "forecast_temp": 11.2,
+      "bracket": "10-10\u00b0C",
+      "model_prob": 0.18,
+      "edge": 0.135,
+      "confidence": 0.9,
+      "city": "london",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in London be 11\u00b0C on February 8?",
+      "condition_id": "0xb41fcfad6db681e1cabefed8e4551bbb1d65d3e7bd797b767393b9d58c48ddb6",
+      "price": 0.665,
+      "direction": "NO",
+      "forecast_temp": 11.2,
+      "bracket": "11-11\u00b0C",
+      "model_prob": 0.229,
+      "edge": -0.436,
+      "confidence": 1.0,
+      "city": "london",
+      "strategy": "temp_ladder"
+    },
+    {
+      "market": "Will the highest temperature in London be 12\u00b0C on February 8?",
+      "condition_id": "0x52bccfd8762f1758ee7c3af100bc0ead8a0a5328277dc7e92b39b9e7584d4ca1",
+      "price": 0.3,
+      "direction": "NO",
+      "forecast_temp": 11.2,
+      "bracket": "12-12\u00b0C",
+      "model_prob": 0.209,
+      "edge": -0.091,
+      "confidence": 0.61,
+      "city": "london",
+      "strategy": "temp_ladder"
+    }
+  ],
+  "forecasts": {
+    "nyc": {
+      "temp_f": 18,
+      "source": "NWS"
+    },
+    "chicago": {
+      "temp_f": 30,
+      "source": "NWS"
+    },
+    "miami": {
+      "temp_f": 71,
+      "source": "NWS"
+    },
+    "seattle": {
+      "temp_f": 51,
+      "source": "NWS"
+    },
+    "dallas": {
+      "temp_f": 77,
+      "source": "NWS"
+    },
+    "atlanta": {
+      "temp_f": 56,
+      "source": "NWS"
+    },
+    "london": {
+      "temp_f": 52.2,
+      "source": "Open-Meteo"
+    },
+    "toronto": {
+      "temp_f": 6.8,
+      "source": "Open-Meteo"
+    },
+    "buenos aires": {
+      "temp_f": 89.0,
+      "source": "Open-Meteo"
+    },
+    "seoul": {
+      "temp_f": 22.7,
+      "source": "Open-Meteo"
+    },
+    "ankara": {
+      "temp_f": 50.4,
+      "source": "Open-Meteo"
+    },
+    "wellington": {
+      "temp_f": 66.3,
+      "source": "Open-Meteo"
+    }
+  },
+  "events_discovered": [
+    {
+      "title": "Highest temperature in NYC on February 8?",
+      "slug": "highest-temperature-in-nyc-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Chicago on February 8?",
+      "slug": "highest-temperature-in-chicago-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Miami on February 8?",
+      "slug": "highest-temperature-in-miami-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Seattle on February 8?",
+      "slug": "highest-temperature-in-seattle-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Dallas on February 8?",
+      "slug": "highest-temperature-in-dallas-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Atlanta on February 8?",
+      "slug": "highest-temperature-in-atlanta-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in London on February 8?",
+      "slug": "highest-temperature-in-london-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Toronto on February 8?",
+      "slug": "highest-temperature-in-toronto-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Buenos Aires on February 8?",
+      "slug": "highest-temperature-in-buenos-aires-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Seoul on February 8?",
+      "slug": "highest-temperature-in-seoul-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Ankara on February 8?",
+      "slug": "highest-temperature-in-ankara-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Wellington on February 8?",
+      "slug": "highest-temperature-in-wellington-on-february-8-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in NYC on February 9?",
+      "slug": "highest-temperature-in-nyc-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Chicago on February 9?",
+      "slug": "highest-temperature-in-chicago-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Miami on February 9?",
+      "slug": "highest-temperature-in-miami-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Seattle on February 9?",
+      "slug": "highest-temperature-in-seattle-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Dallas on February 9?",
+      "slug": "highest-temperature-in-dallas-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Atlanta on February 9?",
+      "slug": "highest-temperature-in-atlanta-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in London on February 9?",
+      "slug": "highest-temperature-in-london-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Toronto on February 9?",
+      "slug": "highest-temperature-in-toronto-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Buenos Aires on February 9?",
+      "slug": "highest-temperature-in-buenos-aires-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Seoul on February 9?",
+      "slug": "highest-temperature-in-seoul-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Ankara on February 9?",
+      "slug": "highest-temperature-in-ankara-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "Highest temperature in Wellington on February 9?",
+      "slug": "highest-temperature-in-wellington-on-february-9-2026",
+      "n_markets": 7
+    },
+    {
+      "title": "February 2026 Temperature Increase (\u00baC)",
+      "slug": "february-2026-temperature-increase-c",
+      "n_markets": 6
+    },
+    {
+      "title": "Precipitation in Seattle in February?",
+      "slug": "precipitation-in-seattle-in-february",
+      "n_markets": 7
+    },
+    {
+      "title": "Precipitation in NYC in February?",
+      "slug": "precipitation-in-nyc-in-february",
+      "n_markets": 6
+    },
+    {
+      "title": "How many Tornadoes in the US in February?",
+      "slug": "how-many-tornadoes-in-the-us-in-february",
+      "n_markets": 5
+    }
+  ],
+  "summary": {
+    "agent_id": "agent_23",
+    "type": "weather",
+    "generation": 1,
+    "capital": 11504.7,
+    "pnl": 0.0,
+    "pnl_pct": 0.0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": 0.0,
+    "sharpe": 0.0,
+    "max_drawdown": 0.0,
+    "drawdown_pct": 0.0,
+    "open_positions": 8,
+    "total_trades": 0,
+    "purged": false
+  }
+}

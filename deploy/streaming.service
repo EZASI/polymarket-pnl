@@ -1,0 +1,24 @@
+[Unit]
+Description=Streaming Alpha Engine - BTC Price Predictor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/polymarket-pnl
+ExecStart=/usr/bin/python3 streaming_predictor.py --self-train
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/ubuntu/polymarket-pnl/logs/streaming.log
+StandardError=append:/home/ubuntu/polymarket-pnl/logs/streaming.err
+
+# Environment
+Environment=PYTHONUNBUFFERED=1
+
+# Resource limits
+LimitNOFILE=65535
+MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target

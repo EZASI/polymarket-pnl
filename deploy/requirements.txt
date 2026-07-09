@@ -1,0 +1,20 @@
+# Streaming Alpha Engine Dependencies
+# Install: pip install -r requirements.txt
+
+# Core
+numpy
+pandas
+requests
+
+# Async streaming
+websockets>=12.0
+aiohttp>=3.9
+
+# ML models
+scikit-learn
+lightgbm
+xgboost
+joblib
+
+# Data sources
+pyarrow

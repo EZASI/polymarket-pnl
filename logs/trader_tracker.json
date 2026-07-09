@@ -1,0 +1,832 @@
+{
+  "time": "2026-02-08T00:10:02.412144+00:00",
+  "traders": [
+    {
+      "name": "0x492442EaB586F242B53bDa933fD5dE859c8A3782-1766317541188",
+      "wallet": "0x492442eab5...",
+      "total_activity": 500,
+      "total_trades": 431,
+      "markets_traded": 73,
+      "wins": 34,
+      "losses": 27,
+      "win_rate": 55.7,
+      "net_pnl": 2315358.0,
+      "active_positions": 14,
+      "active": [
+        {
+          "title": "Spread: Thunder (-4.5)",
+          "pnl": -317562.91,
+          "buys": 317562.91,
+          "sells": 0.0,
+          "trades": 3,
+          "last_trade": "2026-02-07T15:21:05",
+          "last_side": "BUY",
+          "outcome": "Thunder",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Spurs (-11.5)",
+          "pnl": -300235.58,
+          "buys": 300235.58,
+          "sells": 0.0,
+          "trades": 12,
+          "last_trade": "2026-02-07T22:23:25",
+          "last_side": "BUY",
+          "outcome": "Spurs",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Magic (-8.5)",
+          "pnl": -230008.1,
+          "buys": 230008.1,
+          "sells": 0.0,
+          "trades": 16,
+          "last_trade": "2026-02-07T18:48:13",
+          "last_side": "BUY",
+          "outcome": "Magic",
+          "resolved": false
+        },
+        {
+          "title": "Rockets vs. Thunder: O/U 213.5",
+          "pnl": -198819.56,
+          "buys": 198819.56,
+          "sells": 0.0,
+          "trades": 3,
+          "last_trade": "2026-02-07T15:13:11",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Cavaliers vs. Kings: O/U 234.5",
+          "pnl": -176439.27,
+          "buys": 176439.27,
+          "sells": 0.0,
+          "trades": 42,
+          "last_trade": "2026-02-07T16:45:35",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Mavericks vs. Spurs: O/U 229.5",
+          "pnl": -167586.67,
+          "buys": 167586.67,
+          "sells": 0.0,
+          "trades": 83,
+          "last_trade": "2026-02-07T16:57:11",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Mavericks vs. Spurs: O/U 230.5",
+          "pnl": -157332.77,
+          "buys": 157332.77,
+          "sells": 0.0,
+          "trades": 15,
+          "last_trade": "2026-02-07T16:56:13",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Magic (-9.5)",
+          "pnl": -22915.06,
+          "buys": 22915.06,
+          "sells": 0.0,
+          "trades": 5,
+          "last_trade": "2026-02-07T18:35:09",
+          "last_side": "BUY",
+          "outcome": "Magic",
+          "resolved": false
+        },
+        {
+          "title": "Rockets vs. Thunder: O/U 214.5",
+          "pnl": -15323.53,
+          "buys": 15323.53,
+          "sells": 0.0,
+          "trades": 2,
+          "last_trade": "2026-02-07T15:11:33",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Magic (-7.5)",
+          "pnl": -8458.81,
+          "buys": 8458.81,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T18:22:41",
+          "last_side": "BUY",
+          "outcome": "Magic",
+          "resolved": false
+        }
+      ],
+      "recent_trades": [
+        {
+          "title": "Spread: Spurs (-11.5)",
+          "pnl": -300235.58,
+          "buys": 300235.58,
+          "sells": 0.0,
+          "trades": 12,
+          "last_trade": "2026-02-07T22:23:25",
+          "last_side": "BUY",
+          "outcome": "Spurs",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Spurs (-10.5)",
+          "pnl": -2707.24,
+          "buys": 2707.24,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T22:23:21",
+          "last_side": "BUY",
+          "outcome": "Spurs",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Magic (-8.5)",
+          "pnl": -230008.1,
+          "buys": 230008.1,
+          "sells": 0.0,
+          "trades": 16,
+          "last_trade": "2026-02-07T18:48:13",
+          "last_side": "BUY",
+          "outcome": "Magic",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Magic (-9.5)",
+          "pnl": -22915.06,
+          "buys": 22915.06,
+          "sells": 0.0,
+          "trades": 5,
+          "last_trade": "2026-02-07T18:35:09",
+          "last_side": "BUY",
+          "outcome": "Magic",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Magic (-7.5)",
+          "pnl": -8458.81,
+          "buys": 8458.81,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T18:22:41",
+          "last_side": "BUY",
+          "outcome": "Magic",
+          "resolved": false
+        }
+      ],
+      "leaderboard_pnl": 1910577.3668627795,
+      "period": "WEEK"
+    },
+    {
+      "name": "FeatherLeather",
+      "wallet": "0xd25c72ac09...",
+      "total_activity": 500,
+      "total_trades": 496,
+      "markets_traded": 9,
+      "wins": 4,
+      "losses": 5,
+      "win_rate": 44.4,
+      "net_pnl": 2387853.0,
+      "active_positions": 5,
+      "active": [
+        {
+          "title": "Will FC Lorient win on 2026-01-31?",
+          "pnl": -256195.66,
+          "buys": 256195.66,
+          "sells": 0.0,
+          "trades": 83,
+          "last_trade": "2026-01-31T18:00:12",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        },
+        {
+          "title": "Will BV Borussia 09 Dortmund win on 2026-02-07?",
+          "pnl": -67249.84,
+          "buys": 67249.84,
+          "sells": 0.0,
+          "trades": 57,
+          "last_trade": "2026-02-07T14:29:59",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        },
+        {
+          "title": "Will Norway win the most gold medals in the 2026 Winter Olym",
+          "pnl": -105.4,
+          "buys": 105.4,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T13:52:27",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": false
+        },
+        {
+          "title": "Seahawks vs. Patriots",
+          "pnl": -102.0,
+          "buys": 102.0,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T13:47:13",
+          "last_side": "BUY",
+          "outcome": "Seahawks",
+          "resolved": false
+        },
+        {
+          "title": "Rockets vs. Thunder",
+          "pnl": -101.2,
+          "buys": 101.2,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T13:49:19",
+          "last_side": "BUY",
+          "outcome": "Rockets",
+          "resolved": false
+        }
+      ],
+      "recent_trades": [
+        {
+          "title": "Will BV Borussia 09 Dortmund win on 2026-02-07?",
+          "pnl": -67249.84,
+          "buys": 67249.84,
+          "sells": 0.0,
+          "trades": 57,
+          "last_trade": "2026-02-07T14:29:59",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        },
+        {
+          "title": "Will Norway win the most gold medals in the 2026 Winter Olym",
+          "pnl": -105.4,
+          "buys": 105.4,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T13:52:27",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": false
+        },
+        {
+          "title": "Rockets vs. Thunder",
+          "pnl": -101.2,
+          "buys": 101.2,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T13:49:19",
+          "last_side": "BUY",
+          "outcome": "Rockets",
+          "resolved": false
+        },
+        {
+          "title": "Seahawks vs. Patriots",
+          "pnl": -102.0,
+          "buys": 102.0,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T13:47:13",
+          "last_side": "BUY",
+          "outcome": "Seahawks",
+          "resolved": false
+        },
+        {
+          "title": "Will AC Milan win on 2026-02-03?",
+          "pnl": 1402842.16,
+          "buys": 925834.1,
+          "sells": 2328676.26,
+          "trades": 220,
+          "last_trade": "2026-02-04T09:56:30",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": true
+        }
+      ],
+      "leaderboard_pnl": 1336294.5902801037,
+      "period": "WEEK"
+    },
+    {
+      "name": "joosangyoo",
+      "wallet": "0x07b8e44b90...",
+      "total_activity": 500,
+      "total_trades": 495,
+      "markets_traded": 12,
+      "wins": 4,
+      "losses": 8,
+      "win_rate": 33.3,
+      "net_pnl": -101297.0,
+      "active_positions": 7,
+      "active": [
+        {
+          "title": "Rockets vs. Thunder",
+          "pnl": -45350.02,
+          "buys": 63663.57,
+          "sells": 18313.55,
+          "trades": 149,
+          "last_trade": "2026-02-07T20:39:43",
+          "last_side": "BUY",
+          "outcome": "Rockets",
+          "resolved": false
+        },
+        {
+          "title": "Warriors vs. Lakers",
+          "pnl": -52999.99,
+          "buys": 52999.99,
+          "sells": 0.0,
+          "trades": 10,
+          "last_trade": "2026-02-07T23:49:11",
+          "last_side": "BUY",
+          "outcome": "Lakers",
+          "resolved": false
+        },
+        {
+          "title": "Mavericks vs. Spurs",
+          "pnl": -39000.0,
+          "buys": 39000.0,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T22:07:19",
+          "last_side": "BUY",
+          "outcome": "Spurs",
+          "resolved": false
+        },
+        {
+          "title": "Wizards vs. Nets",
+          "pnl": -35275.17,
+          "buys": 36603.83,
+          "sells": 1328.66,
+          "trades": 34,
+          "last_trade": "2026-02-07T20:11:11",
+          "last_side": "BUY",
+          "outcome": "Nets",
+          "resolved": false
+        },
+        {
+          "title": "UFC Fight Night: Wang Cong vs. Eduarda Moura (Women's Flywei",
+          "pnl": -15871.44,
+          "buys": 18750.0,
+          "sells": 2878.56,
+          "trades": 30,
+          "last_trade": "2026-02-07T23:05:11",
+          "last_side": "BUY",
+          "outcome": "Cong",
+          "resolved": false
+        },
+        {
+          "title": "Cavaliers vs. Kings",
+          "pnl": -8355.89,
+          "buys": 9508.74,
+          "sells": 1152.85,
+          "trades": 56,
+          "last_trade": "2026-02-07T23:22:41",
+          "last_side": "BUY",
+          "outcome": "Kings",
+          "resolved": false
+        },
+        {
+          "title": "UFC Fight Night: Bruna Brasil vs. Ketlen Souza (Women's Stra",
+          "pnl": -5179.99,
+          "buys": 5179.99,
+          "sells": 0.0,
+          "trades": 8,
+          "last_trade": "2026-02-07T23:36:51",
+          "last_side": "BUY",
+          "outcome": "Brasil",
+          "resolved": false
+        }
+      ],
+      "recent_trades": [
+        {
+          "title": "Warriors vs. Lakers",
+          "pnl": -52999.99,
+          "buys": 52999.99,
+          "sells": 0.0,
+          "trades": 10,
+          "last_trade": "2026-02-07T23:49:11",
+          "last_side": "BUY",
+          "outcome": "Lakers",
+          "resolved": false
+        },
+        {
+          "title": "UFC Fight Night: Bruna Brasil vs. Ketlen Souza (Women's Stra",
+          "pnl": -5179.99,
+          "buys": 5179.99,
+          "sells": 0.0,
+          "trades": 8,
+          "last_trade": "2026-02-07T23:36:51",
+          "last_side": "BUY",
+          "outcome": "Brasil",
+          "resolved": false
+        },
+        {
+          "title": "Cavaliers vs. Kings",
+          "pnl": -8355.89,
+          "buys": 9508.74,
+          "sells": 1152.85,
+          "trades": 56,
+          "last_trade": "2026-02-07T23:22:41",
+          "last_side": "BUY",
+          "outcome": "Kings",
+          "resolved": false
+        },
+        {
+          "title": "UFC Fight Night: Wang Cong vs. Eduarda Moura (Women's Flywei",
+          "pnl": -15871.44,
+          "buys": 18750.0,
+          "sells": 2878.56,
+          "trades": 30,
+          "last_trade": "2026-02-07T23:05:11",
+          "last_side": "BUY",
+          "outcome": "Cong",
+          "resolved": false
+        },
+        {
+          "title": "Mavericks vs. Spurs",
+          "pnl": -39000.0,
+          "buys": 39000.0,
+          "sells": 0.0,
+          "trades": 1,
+          "last_trade": "2026-02-07T22:07:19",
+          "last_side": "BUY",
+          "outcome": "Spurs",
+          "resolved": false
+        }
+      ],
+      "leaderboard_pnl": 1041661.0268960411,
+      "period": "WEEK"
+    },
+    {
+      "name": "weflyhigh",
+      "wallet": "0x03e8a544e9...",
+      "total_activity": 500,
+      "total_trades": 493,
+      "markets_traded": 19,
+      "wins": 4,
+      "losses": 14,
+      "win_rate": 22.2,
+      "net_pnl": 1044122.0,
+      "active_positions": 14,
+      "active": [
+        {
+          "title": "Rockets vs. Thunder: O/U 213.5",
+          "pnl": -104635.73,
+          "buys": 104635.73,
+          "sells": 0.0,
+          "trades": 2,
+          "last_trade": "2026-02-07T15:26:13",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Thunder (-4.5)",
+          "pnl": -70344.92,
+          "buys": 70344.92,
+          "sells": 0.0,
+          "trades": 15,
+          "last_trade": "2026-02-07T15:27:09",
+          "last_side": "BUY",
+          "outcome": "Thunder",
+          "resolved": false
+        },
+        {
+          "title": "Rockets vs. Thunder: O/U 214.5",
+          "pnl": -54734.8,
+          "buys": 54734.8,
+          "sells": 0.0,
+          "trades": 6,
+          "last_trade": "2026-02-07T15:57:41",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Heat vs. Celtics: O/U 226.5",
+          "pnl": -16335.66,
+          "buys": 16335.66,
+          "sells": 0.0,
+          "trades": 25,
+          "last_trade": "2026-02-06T21:41:15",
+          "last_side": "BUY",
+          "outcome": "Over",
+          "resolved": false
+        },
+        {
+          "title": "Will Canada win the Men's Ice Hockey gold medal at the 2026 ",
+          "pnl": -14061.38,
+          "buys": 14061.38,
+          "sells": 0.0,
+          "trades": 117,
+          "last_trade": "2026-02-08T00:05:21",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        },
+        {
+          "title": "Will One Battle After Another win Best Cinematography at the",
+          "pnl": -8000.0,
+          "buys": 8000.0,
+          "sells": 0.0,
+          "trades": 24,
+          "last_trade": "2026-02-07T23:40:59",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        },
+        {
+          "title": "Senators vs. Flyers",
+          "pnl": -7702.49,
+          "buys": 7702.49,
+          "sells": 0.0,
+          "trades": 52,
+          "last_trade": "2026-02-06T00:01:17",
+          "last_side": "BUY",
+          "outcome": "Flyers",
+          "resolved": false
+        },
+        {
+          "title": "Will United States win the Men's Ice Hockey gold medal at th",
+          "pnl": -949.04,
+          "buys": 949.04,
+          "sells": 0.0,
+          "trades": 51,
+          "last_trade": "2026-02-07T23:17:53",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": false
+        },
+        {
+          "title": "Will Switzerland win the Men's Ice Hockey gold medal at the ",
+          "pnl": -875.79,
+          "buys": 875.79,
+          "sells": 0.0,
+          "trades": 89,
+          "last_trade": "2026-02-08T00:05:27",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": false
+        },
+        {
+          "title": "Will Leonardo DiCaprio win Best Actor at the 98th Academy Aw",
+          "pnl": -495.43,
+          "buys": 495.43,
+          "sells": 0.0,
+          "trades": 13,
+          "last_trade": "2026-02-07T19:56:09",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        }
+      ],
+      "recent_trades": [
+        {
+          "title": "Will Switzerland win the Men's Ice Hockey gold medal at the ",
+          "pnl": -875.79,
+          "buys": 875.79,
+          "sells": 0.0,
+          "trades": 89,
+          "last_trade": "2026-02-08T00:05:27",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": false
+        },
+        {
+          "title": "Will Czech Republic win the Men's Ice Hockey gold medal at t",
+          "pnl": -6.37,
+          "buys": 6.37,
+          "sells": 0.0,
+          "trades": 8,
+          "last_trade": "2026-02-08T00:05:27",
+          "last_side": "BUY",
+          "outcome": "Yes",
+          "resolved": false
+        },
+        {
+          "title": "Will Canada win the Men's Ice Hockey gold medal at the 2026 ",
+          "pnl": -14061.38,
+          "buys": 14061.38,
+          "sells": 0.0,
+          "trades": 117,
+          "last_trade": "2026-02-08T00:05:21",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        },
+        {
+          "title": "",
+          "pnl": 0.0,
+          "buys": 0.0,
+          "sells": 0.0,
+          "trades": 0,
+          "last_trade": "2026-02-08T00:01:37",
+          "last_side": "",
+          "outcome": "",
+          "resolved": false
+        },
+        {
+          "title": "Will One Battle After Another win Best Cinematography at the",
+          "pnl": -8000.0,
+          "buys": 8000.0,
+          "sells": 0.0,
+          "trades": 24,
+          "last_trade": "2026-02-07T23:40:59",
+          "last_side": "BUY",
+          "outcome": "No",
+          "resolved": false
+        }
+      ],
+      "leaderboard_pnl": 949620.1964748185,
+      "period": "WEEK"
+    },
+    {
+      "name": "Countryside",
+      "wallet": "0xbddf61af53...",
+      "total_activity": 500,
+      "total_trades": 500,
+      "markets_traded": 14,
+      "wins": 0,
+      "losses": 14,
+      "win_rate": 0.0,
+      "net_pnl": -233259.0,
+      "active_positions": 14,
+      "active": [
+        {
+          "title": "Hornets vs. Hawks",
+          "pnl": -105545.77,
+          "buys": 105545.77,
+          "sells": 0.0,
+          "trades": 49,
+          "last_trade": "2026-02-08T00:10:01",
+          "last_side": "BUY",
+          "outcome": "Hawks",
+          "resolved": false
+        },
+        {
+          "title": "Warriors vs. Lakers",
+          "pnl": -54669.29,
+          "buys": 54669.29,
+          "sells": 0.0,
+          "trades": 231,
+          "last_trade": "2026-02-08T00:09:57",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Lakers (-1.5)",
+          "pnl": -22049.99,
+          "buys": 22049.99,
+          "sells": 0.0,
+          "trades": 9,
+          "last_trade": "2026-02-07T23:52:37",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Nuggets (-7.5)",
+          "pnl": -17849.96,
+          "buys": 17849.96,
+          "sells": 0.0,
+          "trades": 32,
+          "last_trade": "2026-02-07T23:20:45",
+          "last_side": "BUY",
+          "outcome": "Bulls",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Trail Blazers (-9.5)",
+          "pnl": -13342.7,
+          "buys": 13342.7,
+          "sells": 0.0,
+          "trades": 46,
+          "last_trade": "2026-02-07T22:28:03",
+          "last_side": "BUY",
+          "outcome": "Grizzlies",
+          "resolved": false
+        },
+        {
+          "title": "Grizzlies vs. Trail Blazers",
+          "pnl": -7024.03,
+          "buys": 7024.03,
+          "sells": 0.0,
+          "trades": 26,
+          "last_trade": "2026-02-07T22:46:35",
+          "last_side": "BUY",
+          "outcome": "Grizzlies",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Trail Blazers (-10.5)",
+          "pnl": -5515.16,
+          "buys": 5515.16,
+          "sells": 0.0,
+          "trades": 21,
+          "last_trade": "2026-02-07T22:29:11",
+          "last_side": "BUY",
+          "outcome": "Grizzlies",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Lakers (-3.5)",
+          "pnl": -3963.69,
+          "buys": 3963.69,
+          "sells": 0.0,
+          "trades": 55,
+          "last_trade": "2026-02-08T00:09:41",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Hornets (-1.5)",
+          "pnl": -3001.69,
+          "buys": 3001.69,
+          "sells": 0.0,
+          "trades": 23,
+          "last_trade": "2026-02-08T00:08:35",
+          "last_side": "BUY",
+          "outcome": "Hawks",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Lakers (-2.5)",
+          "pnl": -213.67,
+          "buys": 213.67,
+          "sells": 0.0,
+          "trades": 3,
+          "last_trade": "2026-02-07T23:48:51",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        }
+      ],
+      "recent_trades": [
+        {
+          "title": "Hornets vs. Hawks",
+          "pnl": -105545.77,
+          "buys": 105545.77,
+          "sells": 0.0,
+          "trades": 49,
+          "last_trade": "2026-02-08T00:10:01",
+          "last_side": "BUY",
+          "outcome": "Hawks",
+          "resolved": false
+        },
+        {
+          "title": "Warriors vs. Lakers",
+          "pnl": -54669.29,
+          "buys": 54669.29,
+          "sells": 0.0,
+          "trades": 231,
+          "last_trade": "2026-02-08T00:09:57",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Lakers (-3.5)",
+          "pnl": -3963.69,
+          "buys": 3963.69,
+          "sells": 0.0,
+          "trades": 55,
+          "last_trade": "2026-02-08T00:09:41",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Hornets (-1.5)",
+          "pnl": -3001.69,
+          "buys": 3001.69,
+          "sells": 0.0,
+          "trades": 23,
+          "last_trade": "2026-02-08T00:08:35",
+          "last_side": "BUY",
+          "outcome": "Hawks",
+          "resolved": false
+        },
+        {
+          "title": "Spread: Lakers (-1.5)",
+          "pnl": -22049.99,
+          "buys": 22049.99,
+          "sells": 0.0,
+          "trades": 9,
+          "last_trade": "2026-02-07T23:52:37",
+          "last_side": "BUY",
+          "outcome": "Warriors",
+          "resolved": false
+        }
+      ],
+      "leaderboard_pnl": 899773.322462745,
+      "period": "WEEK"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+polymarket:
+  taker_fee_schedule:
+    - price_range: [0.45, 0.55]
+      fee_pct: 0.03
+    - price_range: [0.30, 0.45]
+      fee_pct: 0.02
+    - price_range: [0.55, 0.70]
+      fee_pct: 0.02
+    - price_range: [0.0, 0.30]
+      fee_pct: 0.01
+    - price_range: [0.70, 1.0]
+      fee_pct: 0.01
+  maker_rebate_pct: 0.005

@@ -1,0 +1,21 @@
+[
+  {
+    "game": "Memphis Grizzlies @ Portland Trail Blazers",
+    "market_type": "SPREAD",
+    "question": "Spread: Trail Blazers (-6.5)",
+    "side": "FADE",
+    "team": "Portland Trail Blazers",
+    "pinnacle_prob": 0.494,
+    "polymarket_prob": 0.525,
+    "edge": 0.031,
+    "poly_buy_price": 0.475,
+    "expected_value": 0,
+    "condition_id": "0xbf37d074f3f669a02c6840d7302f06692910b959ae34516b10ad6052ebf51bc6",
+    "token_ids": [
+      "58183945268565318474035190497681798270452904775720721618868830527309525141380",
+      "106409713320996963037114506302749286881015218482504735817458212387317845294169"
+    ],
+    "poly_spread": 0.01,
+    "commence_time": "2026-02-07T03:00:00Z"
+  }
+]

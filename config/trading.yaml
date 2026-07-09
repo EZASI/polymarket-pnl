@@ -1,0 +1,64 @@
+global:
+  equity_usd: 250_000
+  max_daily_loss_pct: 3.0
+  max_strategy_loss_pct: 1.0
+  max_underlying_loss_pct: 2.0
+
+markets:
+  underlyings: [BTC, ETH, SOL]
+  types: [5m, 15m]
+  per_contract_max_usd: 50_000
+  per_underlying_max_multiplier: 2.0
+  per_direction_max_multiplier: 1.5
+  max_simultaneous_markets: 6
+  min_net_ev_bps: 50
+
+execution:
+  mode: maker_only
+  max_slippage_bps: 2.0
+  fill_rate_target: 0.40
+  stale_data_timeout_s: 5
+  latency_circuit_breaker_ms: 2000
+
+risk:
+  inventory_skew_bps_per_pct: 5
+  time_derisking_threshold_s: 60
+  time_derisking_factor: 0.50
+  no_new_orders_below_s: 30
+
+meta_research:
+  schedule_cron: "30 0 * * *"
+  model: claude-opus-4-6
+  auto_apply_recs: false
+  promotion_sharpe_min: 1.5
+  promotion_hit_rate_min: 0.52
+  promotion_brier_max: 0.24
+  promotion_min_trades: 200
+
+database:
+  timescaledb_dsn: "postgresql://postgres:postgres@localhost:5432/mty_hft"
+  redis_url: "redis://localhost:6379/0"
+
+cex:
+  binance:
+    base_url: "https://fapi.binance.com"
+    ws_url: "wss://fstream.binance.com/ws"
+    symbols:
+      - BTCUSDT
+      - ETHUSDT
+      - SOLUSDT
+    kline_interval: "1m"
+    backfill_days: 90
+  bybit:
+    base_url: "https://api.bybit.com"
+    ws_url: "wss://stream.bybit.com/v5/public/linear"
+    symbols:
+      - BTCUSDT
+      - ETHUSDT
+      - SOLUSDT
+
+polymarket:
+  gamma_api_url: "https://gamma-api.polymarket.com"
+  clob_api_url: "https://clob.polymarket.com"
+  clob_ws_url: "wss://ws-subscriptions-clob.polymarket.com/ws/market"
+  poll_interval_s: 30

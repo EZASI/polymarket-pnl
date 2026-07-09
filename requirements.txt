@@ -1,0 +1,27 @@
+# Core dependencies
+requests
+pandas
+numpy
+scikit-learn
+joblib
+
+# ML models (recommended for best accuracy)
+lightgbm
+xgboost
+
+# Data sources
+datasets          # HuggingFace datasets
+pyarrow           # Parquet file support
+
+# Optional: for multi-asset predictor
+# yfinance
+
+# --- MTY-HFT Data Pipeline (Phase 1) ---
+asyncpg>=0.29.0
+aiohttp>=3.9.0
+redis>=5.0.0
+ccxt>=4.0.0
+pydantic>=2.0.0
+PyYAML>=6.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
